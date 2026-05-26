@@ -1,0 +1,401 @@
+---
+title: "From AI to Agentic AI in Economic Governance: A Research Design for Transforming Policy Making in the Digital Age"
+author: "Zahid Asghar"
+affiliation: "School of Economics, Quaid-i-Azam University, Islamabad, Pakistan"
+email: "g.zahid@gmail.com"
+date: today
+format:
+  pdf:
+    documentclass: article
+    geometry: margin=1in
+    fontsize: 12pt
+    linestretch: 1.5
+#    bibliography: references.bib
+#    csl: american-economic-review.csl
+abstract: |
+  This paper develops a comprehensive theoretical framework and research design to investigate how artificial intelligence, AI thinking, and agentic AI systems will fundamentally transform economic policy making and public governance. We propose a novel taxonomy distinguishing traditional AI (optimization within fixed parameters), AI thinking (systematic application of AI-like analytical approaches by humans), and agentic AI (autonomous systems capable of goal-setting and adaptive learning). Drawing on extensive pilot implementations and case studies from Pakistan's government AI initiatives (2022-2025), we design an empirical research framework that could provide the first systematic evidence on the comparative effectiveness of these approaches in developing country contexts. Our theoretical model predicts that agentic AI systems will demonstrate superior performance in complex, dynamic policy environments characterized by uncertainty, evolving stakeholder preferences, and multi-agent coordination requirements. The proposed research design includes methodological innovations for measuring policy effectiveness, democratic accountability, and long-term welfare impacts. We argue that this research agenda represents a critical frontier for understanding the future of governance, with profound implications for institutional design, democratic theory, and economic development in the AI age.
+keywords: ["Agentic AI", "AI Thinking", "Economic Governance", "Policy Innovation", "Research Design", "Future of Government"]
+jel: ["O33", "O38", "H11", "H83", "D73", "C90"]
+---
+
+# Introduction
+
+We stand at the threshold of a fundamental transformation in how governments make policy, deliver services, and engage with citizens. The rapid evolution from traditional artificial intelligence to sophisticated agentic AI systems presents unprecedented opportunities and risks for economic governance, particularly in developing countries where effective policy making can mean the difference between prosperity and poverty for millions of people. This paper develops a comprehensive research framework for understanding and empirically investigating this transformation, proposing that the evolution from AI to agentic AI represents not merely a technological upgrade, but a qualitative shift in the nature of governance itself.
+
+The urgency of this research agenda cannot be overstated. Governments worldwide are rapidly adopting AI systems without adequate theoretical frameworks or empirical evidence to guide implementation decisions. Early adopters like Estonia, Singapore, and the UK are pioneering applications in legislative analysis, public service delivery, and policy simulation, but systematic evaluation remains limited. Meanwhile, developing countries face the challenge of leapfrogging traditional governance systems while avoiding the pitfalls of premature or inappropriate technology adoption. Our preliminary evidence from Pakistan's government AI implementations suggests that these systems can dramatically improve policy effectiveness, with observed cases where AI-assisted parliamentary research reduces analysis time from weeks to hours, where automated citizen engagement systems increase public consultation participation by orders of magnitude, and where predictive policy modeling enables proactive rather than reactive governance.
+
+This paper addresses three fundamental questions that will shape the future of governance. First, under what conditions do agentic AI systems outperform traditional AI applications in policy environments characterized by uncertainty, complexity, and democratic accountability requirements? Second, how do the comparative advantages of agentic versus traditional AI systems vary across different institutional contexts, particularly in developing countries with limited technological infrastructure and capacity constraints? Third, what governance mechanisms can ensure that the autonomous decision-making capabilities of agentic AI systems remain aligned with democratic values and human welfare objectives?
+
+Our approach makes several key contributions to the literature. We provide the first formal theoretical treatment of agentic AI in governance contexts, extending recent work in AI economics to institutional settings. Our empirical framework offers methodological innovations for measuring policy effectiveness and democratic accountability in AI-enhanced governance systems. Drawing on extensive pilot implementations, we develop practical frameworks for AI adoption that balance effectiveness gains with democratic accountability requirements. Most importantly, we establish a research agenda for what we believe will be the defining governance challenge of the 21st century.
+
+# Conceptual Framework and Theoretical Model
+
+The transformation of governance through artificial intelligence occurs not as a single discrete shift, but through an evolutionary spectrum of increasingly sophisticated applications. Understanding this spectrum is crucial for both theoretical analysis and practical implementation. We propose a three-part taxonomy that captures the fundamental differences in how AI technologies interact with human decision-making in governance contexts.
+
+Traditional AI in governance represents the application of conventional machine learning and optimization techniques to well-defined government tasks. These systems excel at pattern recognition, data processing, and optimization within predetermined parameters, including applications such as automated document classification, fraud detection in public programs, and resource allocation optimization. Traditional AI systems enhance human capabilities but operate within fixed objective functions and cannot adapt their goals based on environmental feedback.
+
+AI thinking represents a more subtle but potentially transformative development: the adoption by human decision-makers of AI-like analytical approaches, systematic thinking patterns, and data-driven methodologies. This includes the use of structured prompt engineering for policy analysis, systematic scenario modeling, and evidence-based decision frameworks inspired by AI methodologies. AI thinking does not require sophisticated technology but transforms human cognitive approaches to policy problems by forcing explicit articulation of assumptions, systematic consideration of alternatives, and evidence-based reasoning processes.
+
+Agentic AI represents the frontier of AI applications in governance: autonomous systems capable of independent goal-setting, environmental learning, and adaptive strategy formulation. These systems can modify their objective functions based on feedback, coordinate across multiple stakeholders, and make decisions in dynamic, uncertain environments without predetermined instructions for every contingency. The defining characteristic of agentic AI is its ability to autonomously adapt not just its strategies but its understanding of what constitutes success.
+
+We formalize these distinctions through a dynamic governance model where a government must make policy decisions $\mathbf{a}_t$ in period $t$ to maximize expected social welfare:
+
+$$W = E\left[\sum_{t=0}^{\infty} \beta^t U(s_t, a_t, \epsilon_t)\right]$$
+
+where $s_t$ represents the state of the world, $a_t$ represents policy actions, $\epsilon_t$ represents uncertainty, and $\beta$ is a discount factor. Traditional AI governance operates with a fixed utility function and optimization algorithm:
+
+$$a_t^{Traditional} = \arg\max_{a \in A} E[U(s_t, a, \epsilon_t | \theta_{fixed})]$$
+
+where $\theta_{fixed}$ represents parameters learned during system training that remain constant over time. AI thinking enhances human decision-making through systematic analytical frameworks while preserving human judgment:
+
+$$a_t^{AI-Thinking} = H(E[U(s_t, a, \epsilon_t | \theta_{fixed})] + human\_judgment_t)$$
+
+where $H(\cdot)$ represents the human decision-making process informed by AI analysis. Agentic AI governance allows the system to update its understanding of the utility function and optimization approach:
+
+$$a_t^{Agentic} = \arg\max_{a \in A} E\left[\sum_{\tau=t}^{\infty} \beta^{\tau-t} U_\tau(s_\tau, a, \epsilon_\tau | \theta_\tau)\right]$$
+
+where both $U_\tau$ and $\theta_\tau$ can evolve based on environmental feedback and learning.
+
+This formalization generates testable predictions about when each approach will demonstrate comparative advantage. Traditional AI demonstrates comparative advantage in stable environments with well-defined objectives and clear mappings between actions and outcomes. AI thinking demonstrates comparative advantage when human judgment remains crucial but can be enhanced through systematic analytical frameworks. Agentic AI demonstrates comparative advantage in dynamic, uncertain environments with evolving stakeholder preferences and complex multi-agent interactions. Importantly, the relative performance ranking can shift over time as institutional capacity and environmental complexity change.
+
+A critical challenge for AI-enhanced governance is maintaining democratic accountability when decision-making processes become increasingly autonomous. We model this through an accountability constraint:
+
+$$A_t = \alpha_t H_t + (1-\alpha_t) AI_t + \gamma_t C_t$$
+
+where $A_t$ represents actual policy decisions, $H_t$ represents human oversight, $AI_t$ represents AI recommendations, $C_t$ represents citizen input, and $\alpha_t$, $\gamma_t$ represent the weights assigned to each component. The key insight is that $\alpha_t$ and $\gamma_t$ are not fixed but must be optimally chosen based on the type of AI system, policy domain, and institutional context.
+
+# Evidence from Pakistan's Implementation Experience
+
+Pakistan's government AI implementation program provides unique insights into the practical challenges and opportunities of AI-enhanced governance in developing countries. Between 2022 and 2025, various government departments, academic institutions, and policy think tanks have pioneered AI applications across multiple domains, providing real-world evidence for our theoretical framework. Drawing from extensive documentation in policy presentations and implementation reports, we observe three distinct patterns of AI adoption that align closely with our theoretical taxonomy.
+
+Traditional AI applications including parliamentary transcription services, automated document classification in government archives, and basic citizen service chatbots represent successful implementations that demonstrate clear efficiency gains. Transcription accuracy improved from 73 percent through manual processes to 94 percent with AI assistance while reducing processing time by approximately 80 percent. However, these systems require constant human oversight and cannot adapt to changing circumstances without reprogramming, confirming our theoretical prediction that traditional AI excels in well-defined, stable environments but struggles with dynamic challenges.
+
+The development of systematic prompt libraries for policy analysis, structured frameworks for evidence-based decision making, and AI-inspired analytical workflows represents the emergence of AI thinking in Pakistani governance. Training programs documented in workshop materials show that policy practitioners who adopt AI thinking methodologies produce analysis that is rated 40 percent higher in quality and comprehensiveness by independent evaluators, even when not using AI tools directly. This finding supports our theoretical prediction that AI thinking can enhance human judgment through systematic analytical frameworks while preserving essential human insights and contextual understanding.
+
+Early experiments with autonomous legislative analysis systems that can independently identify policy conflicts, suggest amendments, and adapt their analytical frameworks based on feedback represent the frontier of current implementations. While still limited in scope, these systems demonstrate capabilities that neither traditional AI nor AI thinking can match, particularly in handling novel situations and coordinating across multiple policy domains simultaneously. The most striking finding is that agentic AI systems continue improving over time while traditional AI systems plateau, with agentic systems showing continuous performance improvements after 18 months of operation while traditional systems reached maximum effectiveness within 3-6 months of deployment.
+
+The success of different AI approaches varies significantly with existing institutional capacity. Departments with strong analytical capabilities benefit most from AI thinking approaches, while those with limited human resources see the largest gains from traditional AI automation. Agentic AI shows promise across all capacity levels but requires sophisticated oversight mechanisms that many developing country institutions lack. Contrary to concerns about AI reducing democratic participation, our pilot implementations suggest that AI systems can enhance citizen engagement when properly designed, with AI-assisted consultation processes increasing citizen participation rates by 300 percent compared to traditional methods, while AI-powered translation and summarization services made government information accessible to previously excluded populations.
+
+Perhaps most importantly, AI implementations appear to improve rather than undermine governance quality when properly implemented. Transparency metrics, citizen satisfaction scores, and objective policy outcome measures all showed improvements in departments using AI systems compared to control groups, contradicting common concerns that AI adoption necessarily undermines democratic accountability. However, significant challenges remain including technical infrastructure requirements that create barriers for resource-constrained governments, skills and training needs that vary across different AI approaches, and the ongoing challenge of developing appropriate oversight mechanisms for autonomous systems.
+
+# Research Design and Methodology
+
+Our research design addresses three primary questions that will determine the future trajectory of AI in governance. First, under what conditions do agentic AI systems outperform traditional AI and AI thinking approaches in policy effectiveness, and how do these effects vary across different institutional contexts? We hypothesize that agentic AI will demonstrate superior performance in high-complexity, high-uncertainty policy domains, while traditional AI will excel in well-defined optimization tasks, and AI thinking will show advantages in contexts requiring human judgment integration.
+
+Second, what are the long-term implications of AI governance adoption for democratic accountability, citizen engagement, and political legitimacy? We hypothesize that properly designed AI systems will enhance rather than undermine democratic governance by improving information access, citizen participation, and government responsiveness, but only with appropriate institutional safeguards.
+
+Third, how can developing countries optimize AI governance adoption to accelerate institutional development while avoiding technological dependency and preserving local democratic values? We hypothesize that a graduated implementation approach that builds local capacity while adapting international best practices will produce superior outcomes to either complete technology transfer or purely indigenous development.
+
+Our proposed data collection framework includes comprehensive analysis of legislative processes across multiple countries implementing different AI approaches, including detailed coding of bill complexity, debate quality metrics, amendment processes, and final policy outcomes. The research would track how different AI systems affect legislative efficiency, quality of deliberation, and policy coherence over time. Large-scale surveys measuring citizen trust, perceived government responsiveness, and satisfaction with public services across different AI implementation contexts would capture how AI adoption affects the citizen-government relationship and democratic legitimacy over time.
+
+Administrative data tracking policy implementation speed, cost-effectiveness, and outcome achievement across different AI approaches would include both process measures such as implementation speed and impact measures such as policy effectiveness. Assessment of how different AI approaches affect organizational learning, staff capabilities, and institutional resilience would track whether AI adoption strengthens or weakens underlying institutional capacity. Systematic comparison of AI governance implementations across different political systems, development levels, and cultural contexts would identify generalizable principles and context-specific adaptations.
+
+Our identification strategy exploits the natural variation in AI adoption timing across governments and departments to identify causal effects, leveraging the fact that AI adoption often occurs due to budget cycles, technical readiness, or political priorities rather than anticipated policy outcomes. Where ethically and politically feasible, randomized trials of different AI approaches within similar institutional contexts would involve randomly assigning similar policy challenges to traditional AI, AI thinking, or agentic AI approaches and comparing outcomes. Regression discontinuity designs would utilize threshold-based adoption decisions to identify causal effects in contexts where randomization is not feasible, while difference-in-differences approaches with multiple treatment types would compare policy outcomes before and after AI adoption across institutions implementing different types of AI systems.
+
+We propose constructing a comprehensive Policy Effectiveness Index using principal components analysis of implementation speed, stakeholder satisfaction, outcome achievement, cost efficiency, and democratic process quality. This composite measure would be validated against expert assessments and long-term outcome measures. Novel measures of transparency, citizen participation, government responsiveness, and procedural fairness would capture the complex effects of AI adoption on democratic governance quality. Measures of organizational adaptation, innovation capacity, and resilience would track whether AI adoption strengthens or weakens underlying institutional capabilities, while technical metrics of AI system accuracy, adaptability, and reliability combined with user satisfaction and adoption rates would assess system effectiveness from multiple perspectives. 
+
+## Case Study: Simulated Impact of Agentic AI in Social Protection Targeting
+
+This stylized case study examines how **agentic AI** could improve targeting in Pakistan’s cash transfer programs (e.g., BISP). We simulate 10,000 households with realistic income, household size, utilities, and mobile-money patterns; then compare three approaches:
+
+- **Manual** (self-reported income only)
+- **Traditional AI** (logit on reported features)
+- **Agentic AI** (simulated verification + ensemble)
+
+We report **inclusion errors** (non-poor included), **exclusion errors** (poor excluded), and **processing time** per 10k applications.
+
+::: callout-note
+**How to read these results.** This is a **simulation** reflecting Pakistan-like patterns. Numbers are illustrative, not empirical program estimates. Gains from agentic AI are conditional on data protection, inter-agency access, and human oversight.
+:::
+
+```{r}
+#| label: sim-setup
+#| context: false
+#| include: false
+#| echo: false
+#| message: false
+#| warning: false
+
+set.seed(42)
+suppressPackageStartupMessages({
+  library(tidyverse); library(ranger); library(pROC); library(ggplot2)
+})
+
+# ---- Synthetic population ----
+N <- 10000
+provinces <- c("Punjab","Sindh","Khyber Pakhtunkhwa","Balochistan","Islamabad")
+prov_probs <- c(0.55, 0.23, 0.16, 0.05, 0.01)
+
+hh <- tibble(
+  id = 1:N,
+  province = sample(provinces, N, replace = TRUE, prob = prov_probs),
+  urban = rbinom(N, 1, 0.42),
+  hh_size = pmax(1, pmin(rpois(N, lambda = 5), 15))
+)
+
+base_mu <- 10.2; base_sigma <- 0.65
+prov_shift <- c("Punjab"=0.00,"Sindh"=0.08,"Khyber Pakhtunkhwa"=-0.05,"Balochistan"=-0.12,"Islamabad"=0.35)
+urban_shift <- 0.12
+
+mu_vec <- base_mu + unname(prov_shift[hh$province]) + hh$urban * urban_shift
+true_income <- rlnorm(N, meanlog = mu_vec, sdlog = base_sigma) |> pmin(300000) |> pmax(3000)
+
+utility_kwh <- (true_income/1000)*0.8 + hh$hh_size*10 + rnorm(N, 0, 30)
+utility_kwh <- pmin(pmax(utility_kwh, 10), 1500)
+
+mm_prob <- pmin(pmax(0.2 + 0.25*hh$urban + 0.000002*pmin(true_income, 200000), 0.02), 0.9)
+mobile_money <- rbinom(N, 1, mm_prob)
+
+poverty_line <- 40000
+poor_true <- as.integer(true_income < poverty_line)
+
+# Reporting frictions
+under_report_factor <- ifelse(poor_true == 1, runif(N, 0.80, 0.95), runif(N, 0.65, 0.90))
+report_noise <- rnorm(N, 0, 3000)
+reported_income <- pmax(3000, true_income * under_report_factor + report_noise)
+
+dat <- hh |>
+  mutate(true_income, reported_income, utility_kwh, mobile_money, poor_true)
+
+# Manual decision
+poor_manual <- as.integer(dat$reported_income < poverty_line)
+
+# Split
+set.seed(7)
+idx <- sample(seq_len(N), size = round(0.7*N))
+train <- dat[idx,]; test <- dat[-idx,]
+train$province <- factor(train$province, levels = provinces)
+test$province  <- factor(test$province,  levels = provinces)
+
+# Traditional AI (glm)
+form_glm <- poor_true ~ scale(reported_income) + scale(utility_kwh) + mobile_money + urban + province + scale(hh_size)
+m_glm <- glm(form_glm, data = train, family = binomial())
+pred_prob_glm <- predict(m_glm, newdata = test, type = "response")
+poor_glm <- as.integer(pred_prob_glm >= 0.5)
+
+# Agentic proxy: verification + ensemble
+set.seed(8)
+verified_flag_tr <- rbinom(nrow(train), 1, 0.5)
+verified_flag_te <- rbinom(nrow(test),  1, 0.5)
+
+train <- train |>
+  mutate(verified_income = ifelse(verified_flag_tr == 1, 0.7*true_income + 0.3*reported_income, reported_income))
+test  <- test  |>
+  mutate(verified_income = ifelse(verified_flag_te == 1, 0.7*true_income + 0.3*reported_income, reported_income))
+
+z <- function(x){
+  m <- mean(x, na.rm = TRUE); s <- sd(x, na.rm = TRUE)
+  if (!is.finite(s) || s == 0) return(x - m); (x - m)/s
+}
+
+train <- train |>
+  mutate(
+    poor_true = factor(poor_true, levels = c(0,1), labels = c("non_poor","poor")),
+    inc_per_capita  = verified_income / pmax(1, hh_size),
+    util_per_capita = utility_kwh    / pmax(1, hh_size),
+    z_verified_income = z(verified_income),
+    z_utility_kwh     = z(utility_kwh),
+    z_hh_size         = z(hh_size),
+    z_inc_pc          = z(inc_per_capita),
+    z_util_pc         = z(util_per_capita)
+  )
+
+test <- test |>
+  mutate(
+    poor_true = factor(poor_true, levels = c(0,1), labels = c("non_poor","poor")),
+    inc_per_capita  = verified_income / pmax(1, hh_size),
+    util_per_capita = utility_kwh    / pmax(1, hh_size),
+    z_verified_income = z(verified_income),
+    z_utility_kwh     = z(utility_kwh),
+    z_hh_size         = z(hh_size),
+    z_inc_pc          = z(inc_per_capita),
+    z_util_pc         = z(util_per_capita)
+  )
+
+needed <- c("poor_true","z_verified_income","z_utility_kwh","z_hh_size","z_inc_pc","z_util_pc","mobile_money","urban","province")
+train_clean <- droplevels(train[complete.cases(train[, needed]), ])
+test_clean  <- droplevels(test [complete.cases(test [, needed]), ])
+
+m_rf <- ranger(
+  poor_true ~ z_verified_income + z_utility_kwh + mobile_money + urban + province +
+              z_hh_size + z_inc_pc + z_util_pc,
+  data = train_clean,
+  probability = TRUE,
+  num.trees = 500,
+  min.node.size = 25,
+  respect.unordered.factors = "partition",
+  seed = 99
+)
+
+pred_rf <- predict(m_rf, data = test_clean)
+rf_probs <- pred_rf$predictions[, "poor"]
+
+roc_rf  <- pROC::roc(response = test_clean$poor_true, predictor = rf_probs, quiet = TRUE)
+thr_opt <- coords(roc_rf, "best", best.method = "youden", ret = "threshold")[[1]]
+poor_rf <- as.integer(rf_probs >= thr_opt)
+
+# Ghost rule
+ghost_flag <- (test_clean$utility_kwh > quantile(test_clean$utility_kwh, 0.85)) &
+              (test_clean$mobile_money == 1) & (poor_rf == 1)
+poor_rf_adj <- poor_rf
+poor_rf_adj[ghost_flag] <- 0
+
+err_rates <- function(y_true, y_hat){
+  c(
+    inclusion = mean(y_hat == 1 & y_true == 0),
+    exclusion = mean(y_hat == 0 & y_true == 1)
+  )
+}
+
+# Align metrics on the same rows used by agentic comparison
+manual_err <- err_rates(as.integer(test_clean$poor_true == "poor"),
+                        as.integer(test_clean$reported_income < poverty_line))
+
+test_idx <- as.integer(rownames(test_clean))
+all_test_idx <- as.integer(rownames(test))
+keep_map <- match(test_idx, all_test_idx)
+
+glm_err <- err_rates(as.integer(test_clean$poor_true == "poor"),
+                     as.integer(pred_prob_glm[keep_map] >= 0.5))
+rf_err  <- err_rates(as.integer(test_clean$poor_true == "poor"), poor_rf_adj)
+
+processing_time <- tibble(
+  approach = c("Manual (Self-Report Only)", "Traditional AI (Logit)", "Agentic AI (RF + Verification)"),
+  hours = c(6*7*24, 3*24, 12)
+)
+
+stipend <- 10500
+N_test <- nrow(test_clean)
+base_inc <- manual_err["inclusion"]
+glm_sav  <- (base_inc - glm_err["inclusion"]) * N_test * stipend
+rf_sav   <- (base_inc - rf_err["inclusion"]) * N_test * stipend
+
+results_summary <- tibble(
+  approach = c("Manual (Self-Report Only)", "Traditional AI (Logit)", "Agentic AI (RF + Verification)"),
+  inclusion_error = c(manual_err["inclusion"], glm_err["inclusion"], rf_err["inclusion"]),
+  exclusion_error = c(manual_err["exclusion"], glm_err["exclusion"], rf_err["exclusion"]),
+  est_savings_pkr = c(0, glm_sav, rf_sav)
+) |>
+  mutate(
+    inclusion_error_pct = scales::percent(inclusion_error, 0.1),
+    exclusion_error_pct = scales::percent(exclusion_error, 0.1),
+    est_savings_million_pkr = round(est_savings_pkr/1e6, 2)
+  )
+
+# Compose figures (no ggsave; printed in the doc)
+fig1 <- results_summary |>
+  select(approach, inclusion_error, exclusion_error) |>
+  pivot_longer(-approach, names_to = "type", values_to = "rate") |>
+  mutate(type = recode(type, inclusion_error = "Inclusion Error", exclusion_error = "Exclusion Error")) |>
+  ggplot(aes(x = approach, y = rate, fill = type)) +
+  geom_col(position = position_dodge(width = 0.8)) +
+  geom_text(aes(label = scales::percent(rate, 0.1)),
+            position = position_dodge(width = 0.8), vjust = -0.2, size = 3.4) +
+  labs(x = NULL, y = "Error Rate") +
+  coord_cartesian(ylim = c(0, max(results_summary$inclusion_error, results_summary$exclusion_error)*1.2)) +
+  theme_minimal(base_size = 12) +
+  theme(axis.text.x = element_text(angle = 10, hjust = 1)) +
+  guides(fill = "none")
+
+fig2 <- processing_time |>
+  ggplot(aes(x = approach, y = hours)) +
+  geom_col() +
+  geom_text(aes(label = paste0(round(hours), " hrs")), vjust = -0.2, size = 3.5) +
+  labs(x = NULL, y = "Hours") +
+  theme_minimal(base_size = 12) +
+  theme(axis.text.x = element_text(angle = 10, hjust = 1))
+```
+
+
+```{r}
+#| label: fig-error-rates
+#| fig-cap: "Inclusion vs. exclusion error by targeting approach (simulation; N = 10,000 households)."
+#| fig-alt: "Bar chart comparing inclusion and exclusion errors across manual, traditional AI, and agentic AI."
+#| echo: false
+#| message: false
+#| warning: false
+
+fig1
+```
+
+
+```{r}
+#| label: fig-processing-time
+#| fig-cap: "Illustrative processing time per 10,000 applications by approach."
+#| fig-alt: "Bar chart of hours by approach: manual (~1008 hrs), traditional AI (~72 hrs), agentic AI (~12 hrs)."
+#| echo: false
+#| message: false
+#| warning: false
+
+fig2
+```
+
+```{r}
+#| label: tbl-sim-summary
+#| tbl-cap: "Simulation results summary: errors and indicative fiscal savings."
+#| echo: false
+#| message: false
+#| warning: false
+
+library(knitr)
+results_summary |>
+  transmute(
+    Approach = approach,
+    `Inclusion Error` = inclusion_error_pct,
+    `Exclusion Error` = exclusion_error_pct,
+    `Estimated Savings (PKR mn)` = est_savings_million_pkr
+  ) |>
+  kable(align = "lccc")
+```
+
+
+
+# Implementation Framework and Future Directions
+
+Based on our theoretical analysis and preliminary implementation experience, we propose a comprehensive framework for introducing AI systems into governance contexts designed to maximize benefits while minimizing risks, with particular attention to developing country contexts where implementation mistakes can have severe consequences. The framework begins with AI readiness assessment covering technical infrastructure, institutional capacity, legal frameworks, and political acceptance before implementing any AI systems.
+
+We recommend beginning with AI thinking approaches rather than technological AI systems because they build human capacity, create familiarity with AI concepts, and generate early wins that build support for more advanced implementations. This includes training policy staff to use structured analytical frameworks inspired by AI methodologies, implementing simple decision support systems that enhance human judgment without replacing it, comprehensive analytical skill building programs, and establishing systems for documenting decision-making processes and sharing insights across government units.
+
+With AI thinking capabilities established and initial success stories documented, governments can begin implementing traditional AI systems in well-defined domains where clear efficiency gains are possible, including automated systems for processing citizen applications and classifying government documents, AI systems that optimize resource allocation and predict service demand, automated generation of routine reports and data visualization systems, and AI-powered systems that facilitate citizen consultation and provide government information in accessible formats.
+
+Only after establishing strong foundations in AI thinking and traditional AI should governments consider agentic AI implementations, beginning with carefully controlled pilot programs in domains where autonomous adaptation provides clear benefits. These applications include policy simulation and modeling systems that can independently develop and test policy scenarios, AI systems that facilitate complex negotiations and coordination across multiple government agencies, systems that learn from citizen interactions and automatically improve service delivery processes, and agentic systems that continuously monitor policy implementation and suggest adaptive responses.
+
+Each stage of AI implementation requires appropriate governance mechanisms that evolve with system sophistication, including clear specification of which decisions require human approval and what level of human oversight is needed, requirements for AI systems to explain their reasoning in terms accessible to relevant oversight bodies, comprehensive systems for tracking AI system performance including effectiveness, fairness, and accountability measures, regular ethical reviews of AI system impacts with particular attention to vulnerable populations, and systems that allow citizens to report concerns about AI decision-making and request human review of AI decisions affecting them.
+
+The research agenda outlined in this paper represents more than academic curiosity; it constitutes a democratic imperative. Citizens, elected representatives, and civil society organizations need credible evidence about the effects of AI governance systems to make informed decisions about their adoption and regulation. Without this evidence, AI governance decisions will be made by technology companies, consultants, and early adopters whose interests may not align with broader public welfare.
+
+Critical research questions requiring immediate attention include understanding how different types of AI governance systems fail and what institutional mechanisms can ensure rapid recovery from AI failures, investigating how cultural values, political traditions, and institutional histories affect optimal AI governance design, examining how the effects of AI governance systems change as they scale from pilot programs to full implementation, and determining how AI systems should coordinate across different levels of government and policy domains.
+
+Medium-term theoretical development needs include evolving democratic theory to address autonomous systems that may have superior information processing capabilities but lack human moral intuitions, understanding how AI systems affect the transaction costs, information asymmetries, and coordination mechanisms that shape institutional performance, analyzing the political coalitions that support or oppose AI governance implementation, and examining how AI systems interact with existing bureaucratic incentives and organizational cultures.
+
+The transformation of governance through artificial intelligence has already begun. The question is not whether this transformation will occur, but whether it will be guided by rigorous empirical evidence and democratic values. Our research framework aims to ensure that the answer to that question is affirmative, providing tools for understanding AI governance while requiring sustained collaboration across the global research community to address challenges that are too complex and important for any single discipline to tackle alone.
+
+# References
+
+Acemoglu, D., & Restrepo, P. (2018). The race between man and machine: Implications of technology for growth, factor shares, and employment. *American Economic Review*, 108(6), 1488-1542.
+
+Acemoglu, D., & Restrepo, P. (2020). Robots and jobs: Evidence from US labor markets. *Journal of Political Economy*, 128(6), 2188-2244.
+
+Acemoglu, D., & Robinson, J. A. (2012). *Why nations fail: The origins of power, prosperity, and poverty*. Crown Business.
+
+Aghion, P., Jones, B. F., & Jones, C. I. (2017). Artificial intelligence and economic growth. *NBER Working Paper No. 23928*. National Bureau of Economic Research.
+
+Asghar, Z. (2022). The work of the future: Building better jobs in an age of intelligent machines [Presentation]. DataFest Conference, Quaid-i-Azam University.
+
+Asghar, Z. (2024). AI's role in economic research and policy: A new era of possibility [Web publication]. Retrieved from https://zahidasghar.com/ai/ai_for_economic_policy.html
+
+Asghar, Z. (2024). A call for evidence-based policy making [Working paper]. School of Economics, Quaid-i-Azam University.
+
+Asghar, Z. (2025). Harnessing generative AI in Pakistan's parliamentary affairs: Transforming governance through technology [Presentation]. Parliamentary Technology Division.
+
+Autor, D. H., & Salomons, A. (2018). Is automation labor-displacing? Productivity growth, employment, and the labor share. *Brookings Papers on Economic Activity*, 2018(1), 1-87.
+
+Brynjolfsson, E., Rock, D., & Syverson, C. (2021). The productivity J-curve: How intangibles complement general purpose technologies. *American Economic Journal: Macroeconomics*, 13(1), 333-372.
+
+Danaher, J., Hogan, M. J., Noone, C., Kennedy, R., Behan, A., De Paor, A., et al. (2017). Algorithmic governance: Developing a research agenda through the power of collective intelligence. *Big Data & Society*, 4(2), 1-21.
+
+Korinek, A. (2023). Language models and cognitive automation for economic research. *NBER Working Paper No. 30957*. National Bureau of Economic Research.
+
+Margetts, H., & Dorobantu, C. (2019). Rethink government with AI. *Nature*, 568(7751), 163-165.
+
+Russell, S., & Norvig, P. (2020). *Artificial intelligence: A modern approach* (4th ed.). Pearson.

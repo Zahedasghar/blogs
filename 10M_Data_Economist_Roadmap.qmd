@@ -1,0 +1,205 @@
+---
+title: "₨10 Million Roadmap for a Data Economist"
+subtitle: "8–12 month execution plan for monetizing econometrics, data analytics, and impact evaluation"
+author: "Zahid Asghar"
+affiliation: "School of Economics, Quaid-i-Azam University, Islamabad"
+date: "2025-10-18"
+format:
+  html:
+    theme: cosmo
+    toc: true
+    toc-depth: 3
+    number-sections: true
+    code-fold: false
+    smooth-scroll: true
+    anchor-sections: true
+execute:
+  echo: false
+  warning: false
+  message: false
+editor: visual
+---
+
+::: callout-note
+**Goal**: Earn **₨10 million** within **8–12 months** by productizing expertise in **econometrics, data science, and impact evaluation** for clients in Pakistan and the Global South.
+:::
+
+# Executive Summary
+
+**Strategy**: Build a *data-first business ecosystem* around your authority as an econometrician & evaluation expert. Combine **high-ticket consulting** with **scalable training and digital assets**.
+
+**Target Mix (12 months)**
+
+| Stream | Description | Revenue Target |
+|------------------------|------------------------|------------------------|
+| Consulting & Impact Evaluations | Policy research, RCTs, survey analytics, dashboards | **₨5.0M** |
+| Training & Courses | R/Stats/ML workshops, institutional training, cohorts | **₨2.0M** |
+| Analytics Products | Streamlit/Shiny dashboards, forecasting tools, indices | **₨1.5M** |
+| Sponsored Briefs & Publications | Paid policy notes, commissioned Quarto reports | **₨1.0M** |
+| Speaking & Mentorship | Talks, advisory retainers | **₨0.5M** |
+| **Total** |  | **₨10.0M** |
+
+**North Star**: Monetize *credibility* and *reusable assets*, not just hours.
+
+------------------------------------------------------------------------
+
+# 30-Day Plan — Foundation & Visibility
+
+## Positioning
+
+-   Revamp LinkedIn/X bios: *Econometrician · Data Scientist · Impact Evaluation · AI for Policy*.
+-   Launch/refresh personal **Quarto site** with: About · Portfolio · Datasets · Dashboards · Contact.
+-   Publish 1 signature article: *“From Data to Policy: A Practical Playbook for Pakistan.”*
+
+## Offers
+
+Create three clear offer pages with outcome-driven language and price anchors: - **Impact Evaluation & Policy Analytics** — RCT/DiD/IV, survey & M&E frameworks (₨8–15 lakh / project). - **Capacity Building** — 2–3 day bootcamps in R/Stats/AI for policy teams (₨3–6 lakh / cohort). - **Analytics Products** — Dashboards, forecasting models, indices (₨2–5 lakh / build).
+
+## Trust Assets
+
+-   3–4 *data visuals*: exports map, remittances trends, trade-gap explainer, poverty heatmap.
+-   2 case-style writeups (problem → data → method → insight → impact).
+
+## Outreach
+
+-   Build a list of **50 warm contacts** (donors, ministries, think tanks, telecoms, NGOs).
+-   Send 15 personalized notes/week + 1-page capability deck.
+-   Offer 1 **free mini-brief** or 45-min scoping call per org.
+
+------------------------------------------------------------------------
+
+# 60-Day Plan — First Wins & Proof
+
+## Revenue Targets (by Day 60–75)
+
+-   **₨300–400k / month** via 1–2 paid engagements (analysis or evaluation design).
+-   Launch 1 **paid workshop** (R for Policy Analytics or Impact Eval with Stata/Python).
+
+## Deliverables
+
+-   Reusable **Do-File/Notebook library** (DiD, IV, RDD, PSM, FE/RE, panel TS).
+-   Draft **Monitoring & Evaluation Toolkit** (templates: ToC, logframe, sampling, survey spec).
+
+## Visibility
+
+-   Publish 2 data briefs (Quarto): *Trade Gap*, *Education Outcomes Tracker*.
+-   Start a monthly newsletter: **AI & Economics — Pakistan Edition**.
+
+------------------------------------------------------------------------
+
+# 90-Day Plan — Scale & Systemize
+
+## Productize
+
+-   Ship **one mini-product**:
+    -   *Pakistan Trade Pulse* (Streamlit) or *AI Policy Readiness Index* (Shiny).
+    -   License access: **₨1–2 lakh** / client (think tanks, journalists, investors).
+
+## Scale Consulting
+
+-   Create **sector modules** (Education, Health, Energy, Digital Economy) with methods, datasets, price cards.
+-   Hire 1 RA (data cleaning + viz + QA) to increase throughput.
+
+## Passive Streams
+
+-   Record **6–8 lectures** → self-paced course (Udemy/Thinkific/atomcamp).
+-   Bundle **datasets + reproducible code**.
+
+------------------------------------------------------------------------
+
+# Months 4–12 — Multiplying Income
+
+## High-End Projects
+
+-   Bid national studies (AI readiness, digital economy, welfare targeting).
+-   Act as **local partner** for international consultants (WB/ADB/UN). Ticket size: **₨1.5–3M** each.
+
+## Sponsored Publishing
+
+-   1 policy brief/month (sponsored at **₨100k–150k**). Distribution: Quarto → LinkedIn → X → SSRN.
+
+## Training Brand
+
+-   **“Econometrics for Evidence-Based Policy”** — quarterly cohorts + institutional bootcamps.
+-   Aim for **₨1M/month** run-rate by Month 10–12.
+
+------------------------------------------------------------------------
+
+# Pipeline, Pricing & Packages
+
+## Flagship Packages
+
+-   **Evaluation Accelerator (8–12 weeks)** — design → sample → instruments → analysis → policy brief.\
+    **Price**: ₨1.2–1.8M
+-   **Data Modernization Sprint (6 weeks)** — data audit → cleaning → dashboards → training.\
+    **Price**: ₨600k–900k
+-   **Policy Brief Series (per brief)** — 12–18 pages with viz & code repo.\
+    **Price**: ₨100k–150k
+
+## Rate Anchors
+
+-   Daily: ₨80k–120k · Weekly: ₨350k–500k · Monthly Retainer: ₨900k–1.3M
+
+------------------------------------------------------------------------
+
+# Outreach Operating System
+
+**Weekly Cadence** - 10 warm intros, 5 follow-ups, 2 discovery calls, 1 proposal, 1 public artifact.
+
+**Email Pitch (template)** \> Subject: Rapid evaluation support for {{org}}’s {{program}}\\n\\nDear {{Name}},\\n\\nI specialize in econometric evaluation and policy analytics (DiD/IV/RDD, R/Stata/Python).\\nI reviewed {{program}} and see opportunities to improve evidence and decision speed.\\n\\nCould we explore a 45-minute scoping call? I can share a 1-page approach and sample deliverables.\\n\\nBest,\\nZahid
+
+------------------------------------------------------------------------
+
+# Content Engine
+
+**Monthly Content Plan** - 1 flagship brief, 2 data visuals, 1 tutorial thread, 1 founder-style note. - Topics: trade, inflation, remittances, education outcomes, AI for governance.
+
+------------------------------------------------------------------------
+
+# KPIs to Track
+
+| Area       | KPI                     | Target                |
+|------------|-------------------------|-----------------------|
+| Pipeline   | Discovery calls / week  | 2–4                   |
+| Conversion | Proposal → Win rate     | 25–40%                |
+| Visibility | New followers / month   | 400–600               |
+| Product    | Licenses sold / quarter | 3–6                   |
+| Finance    | Gross monthly revenue   | ₨0.8–1.2M by Month 10 |
+
+------------------------------------------------------------------------
+
+# Risks & Mitigations
+
+-   **Delivery Risk**: Overcommitment → Use RA + standardized templates + weekly reviews.\
+-   **Client Dependence**: Diversify across sectors & mix training + products.\
+-   **Pricing Pressure**: Offer tiered options; publish case studies to defend value.\
+-   **Regulatory/Payments**: Use Wise/Payoneer for foreign clients; keep invoices compliant.
+
+------------------------------------------------------------------------
+
+# Tooling Stack
+
+-   **Analytics**: R, Python, Stata · **Dashboards**: Streamlit, Shiny, Power BI\
+-   **Authoring**: Quarto, LaTeX, Canva · **Data**: FAOSTAT, PBS, SBP, WAPDA, PSX\
+-   **Ops**: Notion, Google Drive, GitHub, Zapier · **Comms**: LinkedIn, X, Zoom
+
+------------------------------------------------------------------------
+
+# Next 7 Days — Checklist
+
+-   [ ] Update bios + Quarto site
+-   [ ] Publish 1 signature article
+-   [ ] Compile a 50-contact outreach list
+-   [ ] Send 15 personalized emails
+-   [ ] Draft one 1-page capability deck
+-   [ ] Outline paid workshop (curriculum + pricing)
+-   [ ] Sketch mini-product scope (features, users, price)
+
+------------------------------------------------------------------------
+
+# Appendix: Methods Library (for proposals)
+
+-   **Causal Inference**: DiD, IV/2SLS, RDD, Synthetic Control, PSM, Diff-in-Diff with staggered adoption\
+-   **Panel & Time Series**: FE/RE, ARIMA/Prophet, VAR, State-Space, Forecast evaluation\
+-   **Survey & Experiments**: Power & sample size, stratified sampling, instrument design, A/B/RCTs\
+-   **ML for Policy**: Gradient boosting, random forests, LLM-assisted coding, embeddings + RAG

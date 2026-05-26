@@ -1,0 +1,299 @@
+---
+title: "The National Curriculum Buffet: One Problem, One Course — Repeat."
+subtitle: "We are not building educated minds anymore. We are building a very expensive wishlist."
+author: "Prof. Dr. Zahid Asghar"
+date: "2026-05-26"
+categories: [Education Policy, Higher Education, Pakistan, Opinion]
+image: "https://images.unsplash.com/photo-1580582932707-520aed937b7b?w=1200&q=80"
+description: |
+  Every national problem in Pakistan now comes with the same policy prescription: add a compulsory course.
+  Financial crisis? Financial Literacy. Moral decline? Another values course. AI revolution? AI course.
+  But are we building minds — or a buffet plate of disconnected credit hours?
+format:
+  html:
+    toc: true
+    toc-depth: 3
+    toc-title: "In this piece"
+    number-sections: false
+    smooth-scroll: true
+    theme:
+      light: flatly
+      dark: darkly
+    css: styles.css
+    df-print: kable
+    fig-align: center
+    cap-location: bottom
+    code-fold: false
+    link-external-newwindow: true
+    include-in-header:
+      text: |
+        <style>
+          body { font-family: 'Georgia', serif; font-size: 1.05rem; line-height: 1.85; }
+          h1, h2, h3 { font-family: 'Playfair Display', Georgia, serif; }
+          .lead-para { font-size: 1.15rem; color: #444; font-style: italic; margin-bottom: 1.5rem; }
+          .pullquote {
+            border-left: 4px solid #2C5F2D;
+            background: #f8f5f0;
+            padding: 1.2rem 1.5rem;
+            margin: 2rem 0;
+            font-size: 1.15rem;
+            font-style: italic;
+            color: #333;
+            border-radius: 0 6px 6px 0;
+          }
+          .course-table th { background-color: #2C5F2D; color: white; }
+          .course-table td { padding: 0.5rem 0.8rem; }
+          .course-table tr:nth-child(even) { background-color: #f5f5f0; }
+          .degree-box {
+            border: 2px dashed #8B7355;
+            border-radius: 8px;
+            padding: 1.5rem;
+            text-align: center;
+            background: #fdfcf9;
+            margin: 2rem 0;
+          }
+          .author-note {
+            border-top: 1px solid #ddd;
+            padding-top: 1.2rem;
+            margin-top: 2.5rem;
+            font-size: 0.9rem;
+            color: #666;
+          }
+          .caption { font-size: 0.82rem; color: #777; text-align: center; margin-top: 0.3rem; }
+        </style>
+        <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+  pdf:
+    toc: true
+    toc-depth: 3
+    number-sections: false
+    fig-align: center
+    cap-location: bottom
+    geometry:
+      - top=25mm
+      - bottom=25mm
+      - left=25mm
+      - right=25mm
+    fontsize: 11pt
+    linestretch: 1.6
+    colorlinks: true
+    linkcolor: "darkgreen"
+    urlcolor: "darkgreen"
+    include-in-header:
+      text: |
+        \usepackage{fancyhdr}
+        \pagestyle{fancy}
+        \fancyhf{}
+        \fancyhead[L]{\textit{The National Curriculum Buffet}}
+        \fancyhead[R]{\textit{Prof. Dr. Zahid Asghar}}
+        \fancyfoot[C]{\thepage}
+execute:
+  echo: false
+  warning: false
+---
+
+::: {.callout-note appearance="simple"}
+**This is an opinion piece.** It reflects the author's personal views on higher education policy in Pakistan. Disagreement — especially from policymakers — is most welcome.
+Usual disclaimers apply: the author has written with a purpose and may have a bias. It is an attempt to spark a conversation about the direction of education policy in Pakistan.
+:::
+
+---
+
+::: {.content-visible when-format="html"}
+![Students in a university lecture hall — a familiar scene across Pakistan's campuses.](https://images.unsplash.com/photo-1523050854058-8df90110c9f1?w=1200&q=80){fig-alt="Students sitting in a university lecture hall" .lightbox}
+
+---
+:::
+
+There is a very simple formula running Pakistan's education policy right now. It has no official name, but if you look carefully, you will see it in every curriculum committee meeting, every HEC workshop, every policy document that begins with the phrase *"in light of the challenges facing the nation."*
+
+The formula goes like this:
+
+::: {.pullquote}
+New national problem detected → identify relevant knowledge area → introduce mandatory 3-credit-hour course → problem solved. Next item, please.
+:::
+
+It is elegant in its simplicity. It requires no evidence. It needs no follow-up. And most importantly, it gives everyone in the room the comfortable feeling that *something has been done* — without actually doing anything that is hard, slow, or expensive.
+
+---
+
+## The Evidence, for Those Who Missed the Memo
+
+Let us look at the record. Every time Pakistani society faces a challenge, someone in an important meeting suggests a course. The course gets added. Nothing changes. At the next meeting, someone suggests another course.
+
+| National Problem | Official Prescription |
+|:---|:---|
+| Financial crisis & low savings | Financial Literacy — from primary to PhD |
+| Unemployment & joblessness | Add Entrepreneurship course |
+| The AI revolution | Add AI Awareness course |
+| Moral decline in society | Another Islamic Course *(Islamic Studies had apparently on vacation)* |
+| Weak national ideology | Add Ideology course *(Pakistan Studies watching silently from the back bench)* |
+| Poor citizenship | Civic Engagement course |
+| Climate change | Environmental Studies course |
+| Mental stress among youth | Emotional Intelligence course |
+| Fake news & misinformation | Media Literacy course |
+| Low productivity at work | Productivity Skills course |
+| No innovation in the economy | Innovation & Design Thinking course |
+| Population growth concerns | Female Health & Population course |
+| Traffic chaos on every road | Advanced Lane Discipline Studies — *Master's level, naturally* |
+
+: The Pakistan Curriculum Policy Lookup Table {#tbl-curriculum .course-table}
+
+That last one is a joke, of course. But give it two years.
+
+The strangest part is not that these courses exist. The strangest part is the assumption underneath them: that human behaviour changes because a student sat in a room for sixteen weeks, stared at PowerPoint slides, and wrote down some points the night before the final exam.
+
+---
+
+::: {.content-visible when-format="html"}
+![A typical exam scene — students writing answers they memorized, not problems they solved.](https://images.unsplash.com/photo-1606326608606-aa0b62935f2b?w=1200&q=80){fig-alt="Students writing in an exam hall" .lightbox}
+
+---
+:::
+
+## What Does This Degree Actually Look Like?
+
+At some point, if we continue at this pace, the honest name for a Pakistani undergraduate degree will no longer be "Bachelor of Science" or "Bachelor of Arts." It will need to be called something more accurate.
+
+::: {.degree-box}
+
+**🎓 Bachelor of Science**
+
+*in Everything Important in Society*
+
+*132 Credit Hours · 4 Years · Compulsory Everything*
+
+---
+
+**Required Courses** *(non-negotiable, society depends on them)*
+
+Financial Literacy · Entrepreneurship · AI Awareness · Moral Values · Ideology · Civic Engagement · Media Literacy · Emotional Intelligence · Productivity Skills · Design Thinking · Environmental Studies · Population Health · Lane Discipline
+
+---
+
+**Elective** *(3 credit hours, if scheduling permits)*
+
+~~Your Actual Major Subject~~
+
+:::
+
+Notice what is required and what is an elective. The subject the student actually enrolled to study — economics, engineering, history, medicine — sits quietly in a corner with barely enough credit hours to call itself a programme. Everything else is the national wishlist of problems that someone thought a course could fix.
+
+---
+
+## The Bigger Question Nobody is Asking
+
+Here is what I want to ask — and I am genuinely asking, not just being dramatic:
+
+**Do we actually believe that young people cannot learn important things unless there is a formal course?**
+
+Think about what human beings have always used to learn about life: family, community, books, observation, failure, mentorship, travel, work, discussion, religion, friendship, and the strange and wonderful experience of being alive among other people.
+
+A course is a supplement to life. It is not a replacement for it.
+
+::: {.callout-warning appearance="simple"}
+**The uncomfortable question:** Does nothing count as learning anymore unless it has a course outline, an attendance register, PowerPoint slides, a midterm, and reproduced notes in the final exam?
+:::
+
+We seem to have arrived — quietly and without any public debate — at a position that says: *"If it is not taught in a classroom with 3 credit hours and a passing grade, it was not learned."*
+
+This is a strange position. And it is a dangerous one. Because it makes universities responsible for fixing everything. Which means, in practice, they end up fixing nothing.
+
+Can young people not learn financial sense from managing a small budget at home? Can they not learn civic responsibility from living in a community? Can they not learn about climate from watching their own city flood every monsoon? Or do we believe that none of these experiences count unless someone turns them into a midterm?
+
+---
+
+## What Gets Lost in the Buffet
+
+::: {.content-visible when-format="html"}
+![Students on phones in a lecture hall — the attention is divided, the curriculum is overloaded.](https://images.unsplash.com/photo-1580582932707-520aed937b7b?w=1200&q=80){fig-alt="Students distracted on phones in class" .lightbox}
+:::
+
+While we are busy adding new dishes to the buffet table, something is disappearing from the kitchen. The foundational skills — the ones no one announces in a press release — are quietly collapsing.
+
+Ask any university teacher who actually grades student work. Ask any employer who hires fresh graduates. They will tell you the same thing, in different words:
+
+- Reading a paragraph and understanding what it actually says
+- Writing one coherent page in any language
+- Following a logical argument from beginning to end
+- Working with numbers — interpreting a graph, reading a percentage
+- Thinking independently when no answer key is available
+- Communicating an idea to another human being
+- Solving a problem that was not in last year's past papers
+- **Learning how to learn — so that the next new thing does not require another new course**
+
+These are not romantic ideals from another era. These are the actual capabilities that allow a person to later understand AI, finance, climate science, or whatever challenge the world produces next.
+
+Without these foundations, adding more compulsory courses on top is like painting a house that has no walls.
+
+---
+
+## A Word About "Important Questions for Exam"
+
+There is a phrase that says more about our education system than any policy document ever could.
+
+Every year, millions of students across Pakistan ask their teachers — or search on Google — for *"important questions for exam."* Not because they are curious about the subject. Not because they want to understand anything. But because they want to know the minimum they need to memorize to pass.
+
+::: {.callout-important appearance="simple"}
+We have built an entire economy around this single phrase: past paper sellers, notes bazaars, prediction tutors, and now AI tools that generate "key points" of any topic in thirty seconds. Adding more compulsory courses to this ecosystem does not improve education. It only gives students more content to search for "important questions" on.
+:::
+
+The moral decline course will not build morality. The media literacy course will not produce critical thinkers. The productivity skills course will not make graduates productive. Not because the topics are wrong — they are all genuinely important — but because the method is wrong. You cannot build character through a course that will be forgotten two weeks after the final.
+
+---
+
+## What Should We Actually Do?
+
+I want to be fair here. The problems people are trying to address are real. Climate change is real. Financial illiteracy is real. Mental health challenges among youth are real. The policymakers who propose these courses are not foolish — they are responding to genuine national concerns.
+
+The question is not whether these issues matter. The question is whether adding a course is the right response to them.
+
+My argument is simple: **strengthen the foundations, and everything else becomes possible.**
+
+A student who reads well can understand climate science without a special course on it. A student who reasons carefully can evaluate financial decisions without a financial literacy module. A student who writes clearly can communicate across disciplines. A student who knows how to learn independently can pick up any new technology — including AI — without needing a dedicated subject on it.
+
+::: {.callout-tip appearance="simple"}
+**What strong foundations look like:**
+
+- Language and communication — in both Urdu and English, to a functional standard
+- Mathematics and quantitative reasoning — not memorized formulas, but genuine numeracy
+- Scientific thinking — how to form a question, test it, and accept a result that surprises you
+- Ethics through practice — not through a course, but through how the institution itself behaves
+- Critical thinking — distinguishing evidence from opinion, fact from interpretation
+- Self-learning habits — the ability to pick up a book, or a course, or a tool independently
+:::
+
+The world will keep changing. That is guaranteed. Every few years there will be a new technology, a new crisis, a new "important issue" that someone will want to add to the curriculum. If we build graduates who can think, they will navigate these changes. If we build graduates who can only memorize course content, we will spend eternity redesigning curricula and never quite catching up.
+
+---
+
+::: {.content-visible when-format="html"}
+![A student reading alone — curiosity and independent learning cannot be administered through a course outline.](https://images.unsplash.com/photo-1456513080510-7bf3a84b82f8?w=1200&q=80){fig-alt="A student reading independently in a library" .lightbox}
+
+---
+:::
+
+## A Final, Honest Question
+
+If we genuinely believe that the way to produce responsible citizens, ethical professionals, financially aware adults, and environmentally conscious individuals is through more compulsory 3-credit-hour courses — then we should say so clearly, and own that belief publicly.
+
+But if, in our honest moments, we know that this is not how human beings actually develop — that real education is slower, harder, less comfortable, and less measurable than adding a subject to a curriculum — then we owe it to the next generation to say that too.
+
+Loudly. Before the buffet plate gets any heavier.
+
+::: {.pullquote}
+We are not short of courses. We are short of education. These are not the same thing — and we have confused them for too long.
+:::
+
+Because at some point, the student standing at the counter cannot carry it anymore. And all that food — expensive, well-intentioned, theoretically nutritious — ends up on the floor.
+
+Meanwhile, Pakistan's employers keep complaining that graduates cannot write one coherent paragraph. Cannot interpret one graph. Cannot distinguish evidence from opinion. Cannot solve one unfamiliar problem without searching for "important questions for exam."
+
+We will keep adding courses. And they will keep failing to fix things. Until we are honest about why.
+
+---
+
+::: {.author-note}
+*This piece reflects his personal views. All images are used under the [Unsplash License](https://unsplash.com/license) (free for commercial and non-commercial use, no attribution required).*
+
+*Feedback, disagreement, and arguments from policymakers are especially welcome.*
+:::

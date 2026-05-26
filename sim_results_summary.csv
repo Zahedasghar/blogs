@@ -1,0 +1,4 @@
+approach,inclusion_error,exclusion_error,est_savings_pkr,inclusion_error_pct,exclusion_error_pct,est_savings_million_pkr
+Manual (Self-Report Only),0.111,0.002,0,11.1%,0.2%,0
+Traditional AI (Logit),0.04733333333333333,0.03166666666666667,2005500.0000000002,4.7%,3.2%,2.01
+Agentic AI (RF + Verification),0.029,0.052,2583000,2.9%,5.2%,2.58

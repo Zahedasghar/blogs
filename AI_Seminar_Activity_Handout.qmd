@@ -1,0 +1,99 @@
+---
+title: "Interactive Seminar Activity: AI in Action — Global Scenarios Challenge"
+author: ""
+date: today
+format:
+  typst:
+    toc: false
+    fontsize: 12pt
+    geometry: margin=1in
+---
+
+## 🎯 Objective
+Participants will **apply AI tools and critical thinking** to analyze, interpret, and communicate insights on a complex global issue — demonstrating how AI enhances understanding in diplomacy, policy, and international affairs.
+
+---
+
+## 🕑 Duration (90 Minutes Total)
+| Phase | Description | Time |
+|-------|--------------|------|
+| 1 | Setup & Instructions | 10 min |
+| 2 | Group Work (Research + Analysis) | 40 min |
+| 3 | Presentations | 20 min |
+| 4 | Reflection & Discussion | 20 min |
+
+---
+
+## 👥 Group Setup
+Divide participants into **4–6 teams**, each representing a thematic area:
+
+1. Security & Strategy  
+2. Economics & Trade  
+3. Climate & Sustainability  
+4. Technology & Innovation  
+5. Humanitarian Affairs  
+6. *(Optional)* Media & Global Narratives  
+
+---
+
+## 💼 Activity Scenario
+You are part of a multidisciplinary **Global Insights Task Force** advising an international organization.
+
+> **Crisis Brief:** “A sudden escalation in the South China Sea has disrupted trade routes, causing regional economic instability and diplomatic tensions.”
+
+Your task: Use **AI-powered tools** to prepare a **2–3 minute policy insight presentation** for global decision-makers.
+
+---
+
+## ⚙️ Step-by-Step Activity Guide
+
+### 🧩 Step 1 – Explore (10 minutes)
+- Choose one AI tool (ChatGPT, Perplexity, Claude, Elicit, etc.).  
+- Gather context on stakeholders, developments, and regional impact.  
+- Cross-check AI-generated outputs with credible sources.
+
+### 🔍 Step 2 – Analyze (15 minutes)
+- Identify **3 key challenges**, **2 opportunities**, and **1 ethical risk** related to your domain.  
+- Discuss where AI adds value and where human judgment is essential.
+
+### 🧠 Step 3 – Synthesize (15 minutes)
+- Prepare a **1-slide policy insight** and a **2-minute presentation** summarizing:  
+  - Main insight  
+  - AI’s contribution  
+  - Ethical or bias concerns
+
+### 🗣️ Step 4 – Present (20 minutes)
+Each group presents findings. Audience acts as **policy reviewers**, asking critical questions.
+
+### 💬 Step 5 – Reflect (20 minutes)
+Facilitator leads reflection using these prompts:
+- What insights did AI reveal that you hadn’t considered?  
+- Where did AI show limitations or bias?  
+- How could AI reshape global research and policymaking?  
+
+---
+
+## 🧭 Learning Outcomes
+Participants will:
+- Use AI to **enhance analytical depth** in global contexts  
+- Practice **prompt engineering** for real-world analysis  
+- Develop skills to **critically evaluate AI outputs**  
+- Collaborate across disciplines using **AI as a co-analyst**  
+
+---
+
+## 🧩 Materials Needed
+- Laptops or tablets with internet access  
+- Shared workspace (Google Docs / Miro / Padlet)  
+- Slide template for presentations  
+- Projector or screen (optional)  
+
+---
+
+## 💡 Sample Prompt for Students
+> “Using an AI tool of your choice, summarize the geopolitical, economic, and humanitarian implications of the South China Sea disruption in under 200 words. Then, identify one bias or limitation in the AI-generated analysis.”
+
+---
+
+## ✨ Facilitator Tip
+Emphasize **AI-human collaboration** — AI extends reasoning but does not replace expertise. Encourage creativity, ethical reflection, and evidence-based reasoning.

@@ -1,0 +1,217 @@
+---
+title: "AI Literacy Practice Excercise for Public Policy Officials"
+subtitle: "Workshop for Punjab Government "
+author: "Zahid Asghar | Quaid-i-Azam University"
+format:
+  revealjs:
+    theme: [default, custom.scss]
+    slide-number: true
+    transition: fade
+    footer: "AI Literacy Workshop | Public Policy, Health & Education | © 2025 Zahid Asghar" 
+    
+---
+
+## 🎯 Practice 
+
+
+- Demonstrate **15 practical GenAI prompts** for public policy, health, education & operations  
+- Emphasize **safe, ethical, and efficient** AI use in government
+- **Practice hands-on** with real department scenarios
+
+---
+
+## 🏛 Section 1: Public Policy & Governance
+
+### 1. Policy Problem Framer 
+
+> You are a senior public-policy advisor in Government of Punjab.  
+> Define the core policy problem I describe. List 3 root causes, 3 departments that must coordinate, and 2 risks if no action in 12 months.  
+
+> **Problem:** [type issue – e.g., rising smog episodes in Lahore].
+
+**Try it:** Use your own current policy challenge
+
+---
+
+### 2. Three-Option Policy Brief 
+
+> Prepare a short note for Secretary P&D giving 3 options – minimal change, moderate reform, aggressive reform – for [topic].  
+> For each option include estimated cost (low/med/high), timeline (months), and political risk.
+
+**Tip:** Add "consider Punjab's fiscal constraints" for realistic options
+
+---
+
+### 3. Summarize for Secretary 
+
+> Convert this long internal note into a one-page brief for the Secretary.  
+> Sections: Problem (3 lines) / Current Status / Decisions Required This Week.  
+> Keep it under 250 words; keep all numbers exact.
+
+**Best for:** 10+ page reports that need executive summary
+
+---
+
+### 4. Stakeholder Map Builder
+
+> Draft a stakeholder map for this policy [describe].  
+> List Responsible / Accountable / Supporting / Blocking actors.  
+> Add one sentence on each actor's likely motivation.
+
+**Extension:** Ask "What coalition-building steps would you recommend?"
+
+---
+
+### 5. Bias & Risk Checker
+
+> Review the following draft.  
+> Mark any unsourced numbers or statements that could sound political.  
+> Suggest neutral alternatives and note where data is missing.
+
+**Use before:** Sending any note to Chief Secretary or Cabinet
+
+---
+
+## ⚕ Section 2: Health Policy Prompts
+
+### 6. Primary-Care Gap Analysis
+
+> You are advising Punjab Health Dept. Identify 4 common barriers to primary-care access in urban slums and 1 low-cost, 6-month solution for each barrier that can be implemented by existing staff.
+
+**Add context:** "Consider Lahore's katchi abadis specifically" for targeted advice
+
+---
+
+### 7. Emergency Brief Generator
+
+> Draft a 1-page "Smog Emergency Brief" for Minister Health.  
+> Include: current status (bullets) / 3 actions taken / 3 public instructions / 1 request to another department.  
+> Tone: calm, factual, non-political.
+
+**Adapt for:** Dengue, heatwave, or any health emergency
+
+---
+
+### 8. Frontline Worker Voice Simulation
+
+> Act as a Lady Health Worker in South Punjab.  
+> Describe, in first person, 3 daily barriers to your work, how data reporting affects you, and what recognition or support would motivate you.
+
+**Value:** Helps design worker-friendly policies from ground perspective
+
+---
+
+## 🎓 Section 3: Education Policy Prompts
+
+### 9. Girls' Drop-out Drill-Down
+
+> You are in the School Education Dept.  
+> List 5 reasons girls drop out after class 5 in South Punjab.  
+> For each reason give one actionable, 12-month intervention the department can do and which partner department is needed.
+
+**Follow-up:** "Now create a monitoring framework for these interventions"
+
+---
+
+### 10. Foundational Learning KPIs
+
+> Suggest 2 indicators for access, 2 for learning, and 1 for teacher presence that can be tracked monthly by a district education authority.  
+> For each KPI, note a realistic data source.
+
+**Specify:** "Focus on primary schools in rural districts"
+
+---
+
+### 11. Parent Communication Rewriter
+
+> Rewrite this school-closure notice so a parent with grade-6 literacy can understand.  
+> Use Urdu-English mix, short sentences (< 15 words), and friendly tone.
+
+**Test it:** Share with non-officer staff to verify clarity
+
+---
+
+## 🧩 Section 4: Operations, Admin & Ethics
+
+### 12. Meeting Minutes Generator
+
+> You are a section officer writing minutes from this meeting [insert notes].  
+> Format: Participants / Agenda / Decisions / Responsible Officer + Deadline.  
+> Tone: formal & neutral.
+
+**Save time:** Record key points during meeting, let AI format properly
+
+---
+
+### 13. Circular Clarity Checker
+
+> Review this draft circular.  
+> Rewrite so that required action, responsible officer, deadline, and consequences are clearly stated.  
+> List 3 phrases that might confuse district staff.
+
+**Result:** Fewer follow-up queries from field offices
+
+---
+
+### 14. ADP Timeline Planner
+
+> For this project [describe], draft a 6-month timeline with monthly milestones, responsible units, and main risk each month.  
+> Assume typical Punjab approval and procurement delays.
+
+**Realistic touch:** "Include buffer time for interdepartmental clearances"
+
+---
+
+### 15. Ethics & Privacy Guard
+
+> List 5 steps I should take before pasting internal government data into an AI tool.  
+> Explain how to anonymize or summarize sensitive information (names, CNICs, patient data) safely.
+
+**Golden rule:** Never paste citizen data directly—summarize or anonymize first
+
+---
+
+## 🧭 Workshop Flow
+
+| Session | Theme | Prompt Range | Activity |
+|----------|--------|---------------|----------|
+| **Day 1 Morning** | AI for Policy Design | 1–5 | Live demo + practice |
+| **Day 1 Afternoon** | Health & Education Labs | 6–11 | Group exercises |
+| **Day 2 Morning** | Admin & Ethics | 12–15 | Ethics discussion |
+| **Day 2 Afternoon** | Group Presentations | — | "One AI prompt I'll use next week" |
+
+---
+
+## 🛡️ Safe AI Use Principles
+
+1. **Never paste** citizen names, CNICs, or medical records
+2. **Always verify** AI-generated facts and numbers
+3. **Use AI as assistant**, not decision-maker
+4. **Keep human judgment** in all policy decisions
+5. **Document** when AI was used in any formal note
+
+---
+
+## 📚 Reference Sources
+
+1. **UK Government AI Knowledge Hub – Prompt & Use Case Library**  
+   [https://ai.gov.uk/knowledge-hub/prompts](https://ai.gov.uk/knowledge-hub/prompts)  
+2. **UK Cabinet Office – AI Playbook & Generative AI Framework (2025)**  
+   [https://www.gov.uk/government/publications/ai-playbook](https://www.gov.uk/government/publications/ai-playbook)  
+3. **Local Government Association (UK) – AI Use Cases for Councils**  
+   [https://www.local.gov.uk/our-support/digitalisation/ai](https://www.local.gov.uk/our-support/digitalisation/ai)  
+4. **NACo (USA) – AI & GenAI Use Cases in County Government (2024)**  
+   [https://www.naco.org](https://www.naco.org)  
+5. **Bowen & Watson (2023) – Teaching with AI Prompt Library**  
+   [https://teachingnaked.com/complete-prompts-from-teaching-with-ai](https://teachingnaked.com/complete-prompts-from-teaching-with-ai)
+
+---
+
+## ✅ Closing Reflection
+
+> "AI will not replace public servants — but those who use AI effectively will."  
+> — Workshop takeaway for Government of Punjab officials
+
+**Your commitment:** Share one prompt with your team this week
+
+---

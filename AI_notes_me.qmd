@@ -1,0 +1,126 @@
+---
+title: "Random resource"
+---
+
+## [AI in courts](https://www.brecorder.com/news/40358024#:~:text=EDITORIAL%3A%20Supreme%20Court%20Justice%20Syed,future%20of%20jurisprudence%20in%20Pakistan.) 
+
+## Quest for AI Knowledge : NBER Working Paper
+
+## [AI and the Future of Work](https://www.nber.org/papers/w30561) 
+
+
+## Predictive vs Generative AI
+
+<!-- Absolutely! Here are some **thoughtful yet simple prompts** designed to spark discussion, reflection, or deeper understanding of both **Predictive AI** and **Generative AI**. These are perfect for class discussions, presentations, projects, or even journal-style reflections. -->
+
+<!-- --- -->
+
+<!-- ### ✅ **Prompts on Predictive AI** -->
+
+<!-- 1. **How does predictive AI help improve daily life without us even noticing?**   -->
+<!-- 2. **In what ways can predictive AI help businesses reduce waste or improve efficiency?**   -->
+<!-- 3. **What are some risks or limitations of relying too much on predictive models?**   -->
+<!-- 4. **Can predictive AI ever fully replace human decision-making? Why or why not?**   -->
+<!-- 5. **How can predictive AI be used in healthcare to save lives?**   -->
+<!-- 6. **What ethical concerns might arise if predictive AI is used to make hiring decisions?**   -->
+<!-- 7. **How would your daily routine change if predictive technologies suddenly stopped working?**   -->
+<!-- 8. **What role does data quality play in the effectiveness of predictive AI?**   -->
+
+<!-- --- -->
+
+<!-- ### 🎨 **Prompts on Generative AI** -->
+
+<!-- 1. **How can generative AI support students and creators in expressing their ideas more freely?**   -->
+<!-- 2. **What is the most exciting use of generative AI you've seen or can imagine? Why?**   -->
+<!-- 3. **If AI can create art, music, and stories, what does that mean for human creativity?**   -->
+<!-- 4. **How can we use generative AI responsibly to avoid misinformation or plagiarism?**   -->
+<!-- 5. **What would you create if you could ask an AI to generate anything for you right now?**   -->
+<!-- 6. **How does refining your prompt change the quality of AI-generated content?**   -->
+<!-- 7. **What might be the emotional impact of consuming content created by AI rather than humans?**   -->
+<!-- 8. **Could generative AI help people with disabilities express themselves? How?** -->
+
+<!-- --- -->
+
+<!-- Would you like these in a printable PDF or formatted as discussion cards? I can also turn them into slides if you're using this for teaching or training. -->
+
+
+
+
+
+<!-- Think about how you use either predictive or generative AI in your everyday tasks.   -->
+<!-- Then: -->
+<!-- 1)  Go to  -->
+<!-- ChatGPT -->
+
+
+
+<!-- CATS and DOGS Methods Tip Sheet -->
+<!-- CATS Method -->
+<!-- Context:  Provide detailed background information to guide AI in generating tailored content. -->
+
+<!-- The foundation of your prompt, providing the AI with detailed information about what you need. It involves outlining the specifics, like the purpose of your message, the details of a project, or the nuances of a scenario, ensuring the AI aligns with your intended outcome. -->
+
+
+<!-- Audience: Understand the audience's characteristics to direct AI's tone, language, and content style. -->
+
+<!-- Essential for tailoring the output to the preferences and expectations of your intended audience. Understanding your audience helps in crafting prompts that lead the AI to generate outputs that resonate with the audience, whether they prefer formal, data-driven language or a more conversational tone. -->
+
+
+<!-- Type: Specify the kind of content needed, influencing its structure and details. -->
+
+<!-- Concerns the nature of the content you are creating, affecting its format and structure. The prompt should guide the AI to produce the type of content required, whether it’s an analytical report, a creative narrative, or any other specific format, tailored to the context and audience. -->
+
+
+<!-- Style: Define the linguistic style or tone to ensure the output aligns with the desired presentation. -->
+
+<!-- Refers to the linguistic and tonal aspects of the content. It's about directing the AI to match the desired writing style, ensuring that the output effectively communicates the intended message with the appropriate flair or professionalism. -->
+
+
+
+<!-- DOGS Method -->
+<!-- Don't Generalize: Emphasize precision and detail in prompts to get specific, high-quality AI outputs. -->
+
+<!-- Emphasizes the importance of specificity in your prompts, ensuring that the AI generates precise and targeted outputs. By avoiding vague requests, you guide the AI to produce more relevant and detailed content, tailored to your specific needs. -->
+
+
+<!-- Open up your mind: Use comprehensive prompts that consider various aspects of the desired output. -->
+
+<!-- Encourages a broad and inclusive approach to prompt engineering, considering various factors and possibilities. This means thinking expansively about what you want the AI to generate, including potential nuances, angles, and aspects that might enrich the output. -->
+
+
+<!-- Go Back: Iterate on the prompts based on AI's output to refine and achieve the targeted result. -->
+
+<!-- Highlights the iterative nature of working with AI, suggesting a continuous refinement process. This involves revisiting and fine-tuning the prompts based on the AI’s output to better align with your objectives, ensuring the final product meets your expectations. -->
+
+
+<!-- Style your Product: Personalize the AI-generated content, infusing it with unique touches that reflect personal style or nuances. -->
+
+<!-- Focuses on personalizing the AI-generated output, infusing it with your unique touch. This could involve adding specific anecdotes, adjusting the tone, or embedding particular phrases that reflect your personal style or the intended impact of the content. -->
+
+
+<!--  and ask it to help you with a definition of both types of AI.   -->
+<!-- 2) Then type into the chatbox: “How are predictive AI and generative AI different?"  -->
+<!-- 3) Based on the response you get from ChatGPT (which is called output),  -->
+<!--           a) list three ways predictive AI and generative AI are different  -->
+<!--           b) list three examples predictive AI and three examples of generative AI.   -->
+<!-- 4) Type or copy/paste your answer into the space provided here. -->
+
+
+## Assignment
+
+<!-- 1. Choose your own writing scenario (personal or professional) that you want to use to engage with ChatGPT, Gemini, or Claude Ai-Assistants. -->
+
+<!-- 2. Using your choice of the CATS or DOGS method, prompt your AI Assistant to help you draft the document you chose.  -->
+
+<!-- 3. Go through each part of the method in your prompt. Revise the prompt as many times as you need to get you the final document you want. -->
+
+<!-- 4. Now, copy and paste your input conversation with all your prompts, along with the output provided by your AI Assistant in the space provided here. -->
+
+
+
+<!-- Reflect on your experience with this assignment and what you learned to use in the real world environment in 100 words or more. -->
+
+
+
+
+

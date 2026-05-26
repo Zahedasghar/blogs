@@ -1,0 +1,649 @@
+---
+title: "Interactive AI Research Assistant"
+subtitle: "Integrating AI into Academic Research Workflow"
+author: "Economics Research Lab"
+date: today
+format: 
+  html:
+    theme: cosmo
+    toc: true
+    toc-depth: 3
+    code-fold: true
+    code-tools: true
+    embed-resources: true
+    grid:
+      sidebar-width: 300px
+      body-width: 900px
+      margin-width: 300px
+execute:
+  echo: true
+  warning: false
+  message: false
+---
+
+# Interactive AI Research Assistant in Quarto
+
+This document demonstrates how to integrate AI assistance directly into your research workflow using Quarto's interactive capabilities.
+
+## Setup and Libraries
+
+```{r}
+#| label: setup
+#| include: false
+
+# Load required libraries
+library(tidyverse)
+library(DT)
+library(plotly)
+library(reactable)
+library(htmltools)
+library(modelsummary)
+
+# Set global options
+options(digits = 3)
+knitr::opts_chunk$set(
+  fig.width = 10,
+  fig.height = 6,
+  dpi = 300,
+  warning = FALSE,
+  message = FALSE
+)
+```
+
+## Research Context Manager
+
+```{r}
+#| label: research-context
+#| echo: true
+
+# Create a research context structure
+research_context <- list(
+  project_title = "Impact of AI on Labor Market Dynamics",
+  methodology = "Panel Data Analysis",
+  data_source = "Administrative Records + Survey Data",
+  research_questions = c(
+    "How does AI adoption affect employment levels?",
+    "What are the skill-biased effects of AI implementation?",
+    "How do labor market outcomes vary by industry?"
+  ),
+  analysis_tools = c("R", "Python", "Stata"),
+  status = "Data Collection Phase"
+)
+
+# Display research context
+research_context
+```
+
+## Interactive AI Assistant Interface
+
+::: {.panel-tabset}
+
+## AI Assistant
+
+```{=html}
+<div id="ai-assistant" style="
+  border: 2px solid #e3f2fd;
+  border-radius: 10px;
+  padding: 20px;
+  margin: 20px 0;
+  background: linear-gradient(135deg, #f8f9fa 0%, #e3f2fd 100%);
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+">
+  <h3 style="color: #1565c0; margin-bottom: 15px;">
+    🤖 AI Research Assistant
+  </h3>
+  
+  <div style="margin-bottom: 15px;">
+    <strong>Quick Assistance:</strong>
+    <div style="display: flex; gap: 10px; margin: 10px 0; flex-wrap: wrap;">
+      <button onclick="setAssistanceType('methodology')" style="
+        background: #2196f3;
+        color: white;
+        border: none;
+        padding: 8px 16px;
+        border-radius: 20px;
+        cursor: pointer;
+        font-size: 12px;
+      ">📊 Methodology</button>
+      <button onclick="setAssistanceType('analysis')" style="
+        background: #4caf50;
+        color: white;
+        border: none;
+        padding: 8px 16px;
+        border-radius: 20px;
+        cursor: pointer;
+        font-size: 12px;
+      ">📈 Analysis</button>
+      <button onclick="setAssistanceType('code')" style="
+        background: #ff9800;
+        color: white;
+        border: none;
+        padding: 8px 16px;
+        border-radius: 20px;
+        cursor: pointer;
+        font-size: 12px;
+      ">💻 Code</button>
+      <button onclick="setAssistanceType('writing')" style="
+        background: #9c27b0;
+        color: white;
+        border: none;
+        padding: 8px 16px;
+        border-radius: 20px;
+        cursor: pointer;
+        font-size: 12px;
+      ">✍️ Writing</button>
+    </div>
+  </div>
+  
+  <div style="margin-bottom: 15px;">
+    <textarea id="research-query" placeholder="Ask about methodology, analysis, coding, or writing assistance..." style="
+      width: 100%;
+      height: 80px;
+      padding: 10px;
+      border: 2px solid #e0e0e0;
+      border-radius: 5px;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      resize: vertical;
+    "></textarea>
+  </div>
+  
+  <div style="display: flex; gap: 10px; margin-bottom: 15px;">
+    <button onclick="getAIAssistance()" style="
+      background: #1565c0;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 5px;
+      cursor: pointer;
+      font-weight: bold;
+    ">Get AI Assistance</button>
+    <button onclick="clearResponse()" style="
+      background: #757575;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 5px;
+      cursor: pointer;
+    ">Clear</button>
+  </div>
+  
+  <div id="ai-response" style="
+    background: white;
+    border: 1px solid #e0e0e0;
+    border-radius: 5px;
+    padding: 15px;
+    min-height: 100px;
+    max-height: 400px;
+    overflow-y: auto;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    display: none;
+  ">
+    <div id="response-content"></div>
+  </div>
+</div>
+```
+
+## Usage Guide
+
+The AI assistant above provides specialized help for economics research:
+
+- **📊 Methodology**: Research design, sampling, causality
+- **📈 Analysis**: Statistical techniques, econometric models
+- **💻 Code**: R/Python implementation, debugging
+- **✍️ Writing**: Structure, argumentation, academic style
+
+### Example Queries:
+
+- "Help me design an IV strategy for studying AI adoption effects"
+- "I need R code for difference-in-differences with multiple time periods"
+- "How should I structure the methodology section for a labor economics paper?"
+
+:::
+
+<script>
+function setAssistanceType(type) {
+  const textarea = document.getElementById('research-query');
+  const templates = {
+    methodology: "Help me design a methodology for studying [research topic]. I need guidance on [specific aspect].",
+    analysis: "I have [describe your data] and want to perform [type of analysis]. What R/Python approach should I take?",
+    code: "I need help with R code for [specific task]. My data structure includes [describe variables].",
+    writing: "I'm working on [paper section] and need help structuring my argument about [topic]."
+  };
+  textarea.value = templates[type];
+  textarea.focus();
+}
+
+function getAIAssistance() {
+  const query = document.getElementById('research-query').value;
+  const responseDiv = document.getElementById('ai-response');
+  const contentDiv = document.getElementById('response-content');
+  
+  if (!query.trim()) {
+    alert('Please enter a research question or request.');
+    return;
+  }
+  
+  // Show loading state
+  responseDiv.style.display = 'block';
+  contentDiv.innerHTML = `
+    <div style="text-align: center; padding: 20px;">
+      <div style="display: inline-block; width: 20px; height: 20px; border: 3px solid #f3f3f3; border-top: 3px solid #3498db; border-radius: 50%; animation: spin 1s linear infinite;"></div>
+      <p style="margin-top: 10px; color: #666;">Generating AI assistance...</p>
+    </div>
+  `;
+  
+  // Simulate AI response (in real implementation, this would call Claude API)
+  setTimeout(() => {
+    const responses = {
+      methodology: generateMethodologyResponse(query),
+      analysis: generateAnalysisResponse(query),
+      code: generateCodeResponse(query),
+      writing: generateWritingResponse(query),
+      default: generateDefaultResponse(query)
+    };
+    
+    const responseType = detectResponseType(query);
+    contentDiv.innerHTML = responses[responseType] || responses.default;
+  }, 2000);
+}
+
+function detectResponseType(query) {
+  const q = query.toLowerCase();
+  if (q.includes('methodology') || q.includes('design') || q.includes('approach')) return 'methodology';
+  if (q.includes('analysis') || q.includes('statistical') || q.includes('model')) return 'analysis';
+  if (q.includes('code') || q.includes('r ') || q.includes('python')) return 'code';
+  if (q.includes('writing') || q.includes('paper') || q.includes('draft')) return 'writing';
+  return 'default';
+}
+
+function generateMethodologyResponse(query) {
+  return `
+    <div style="background: #e8f5e8; padding: 15px; border-radius: 5px; margin-bottom: 15px;">
+      <h4 style="color: #2e7d32; margin-bottom: 10px;">🎯 Methodology Guidance</h4>
+      <p><strong>Research Design Recommendation:</strong></p>
+      <p>Based on your query about "${query.substring(0, 100)}...", I recommend considering a mixed-methods approach that combines quantitative panel data analysis with qualitative interviews.</p>
+      
+      <p><strong>Key Considerations:</strong></p>
+      <ul>
+        <li>Sample size and power analysis requirements</li>
+        <li>Potential confounding variables and control strategies</li>
+        <li>Temporal dynamics and causality assessment</li>
+        <li>External validity and generalizability</li>
+      </ul>
+      
+      <p><strong>Next Steps:</strong></p>
+      <ol>
+        <li>Develop detailed sampling strategy</li>
+        <li>Create data collection instruments</li>
+        <li>Plan analytical framework</li>
+        <li>Consider ethical clearance requirements</li>
+      </ol>
+    </div>
+  `;
+}
+
+function generateAnalysisResponse(query) {
+  return `
+    <div style="background: #e3f2fd; padding: 15px; border-radius: 5px; margin-bottom: 15px;">
+      <h4 style="color: #1565c0; margin-bottom: 10px;">📊 Analysis Guidance</h4>
+      <p><strong>Analytical Approach:</strong></p>
+      <p>For your research question "${query.substring(0, 100)}...", I recommend starting with exploratory data analysis followed by fixed-effects panel regression.</p>
+      
+      <p><strong>Suggested Analysis Pipeline:</strong></p>
+      <ol>
+        <li><strong>Descriptive Statistics:</strong> Summary statistics, correlation matrices</li>
+        <li><strong>Visualization:</strong> Time series plots, cross-sectional comparisons</li>
+        <li><strong>Model Selection:</strong> Fixed vs random effects testing</li>
+        <li><strong>Robustness Checks:</strong> Alternative specifications, subgroup analysis</li>
+      </ol>
+      
+      <p><strong>R Packages to Consider:</strong></p>
+      <ul>
+        <li><code>plm</code> - Panel data econometrics</li>
+        <li><code>lfe</code> - Linear group fixed effects</li>
+        <li><code>modelsummary</code> - Publication-ready tables</li>
+        <li><code>ggplot2</code> - Data visualization</li>
+      </ul>
+    </div>
+  `;
+}
+
+function generateCodeResponse(query) {
+  return `
+    <div style="background: #fff3e0; padding: 15px; border-radius: 5px; margin-bottom: 15px;">
+      <h4 style="color: #f57c00; margin-bottom: 10px;">💻 Code Assistance</h4>
+      <p><strong>Code Solution:</strong></p>
+      <p>Here's R code to address your request about "${query.substring(0, 100)}...":</p>
+      
+      <pre style="background: #2d3748; color: #e2e8f0; padding: 15px; border-radius: 5px; overflow-x: auto;"><code># Load required libraries
+library(tidyverse)
+library(plm)
+library(modelsummary)
+
+# Load and prepare data
+data <- read_csv("your_data.csv") %>%
+  mutate(
+    time_period = as.factor(year),
+    entity_id = as.factor(id)
+  )
+
+# Run panel regression
+model <- plm(outcome ~ treatment + controls, 
+             data = data, 
+             index = c("entity_id", "time_period"),
+             model = "within")
+
+# Generate summary table
+modelsummary(model, 
+             stars = TRUE,
+             gof_map = c("nobs", "r.squared"))
+</code></pre>
+      
+      <p><strong>Key Points:</strong></p>
+      <ul>
+        <li>Ensure proper data structure with entity and time identifiers</li>
+        <li>Consider clustering standard errors at appropriate level</li>
+        <li>Validate model assumptions through diagnostic plots</li>
+      </ul>
+    </div>
+  `;
+}
+
+function generateWritingResponse(query) {
+  return `
+    <div style="background: #f3e5f5; padding: 15px; border-radius: 5px; margin-bottom: 15px;">
+      <h4 style="color: #7b1fa2; margin-bottom: 10px;">✍️ Writing Assistance</h4>
+      <p><strong>Writing Guidance:</strong></p>
+      <p>For your writing query "${query.substring(0, 100)}...", here's a structured approach:</p>
+      
+      <p><strong>Section Structure:</strong></p>
+      <ol>
+        <li><strong>Opening:</strong> State main argument clearly</li>
+        <li><strong>Literature Context:</strong> Position within existing research</li>
+        <li><strong>Evidence:</strong> Present empirical support</li>
+        <li><strong>Implications:</strong> Discuss broader significance</li>
+      </ol>
+      
+      <p><strong>Academic Writing Tips:</strong></p>
+      <ul>
+        <li>Use active voice where possible</li>
+        <li>Ensure logical flow between paragraphs</li>
+        <li>Support claims with evidence</li>
+        <li>Maintain consistent terminology</li>
+      </ul>
+      
+      <p><strong>Sample Paragraph Structure:</strong></p>
+      <p style="font-style: italic; background: #fafafa; padding: 10px; border-left: 4px solid #7b1fa2;">
+        "The evidence suggests that [main finding]. This result is consistent with [theoretical framework] and extends previous work by [specific contribution]. The implications for [broader context] are significant because [explanation]."
+      </p>
+    </div>
+  `;
+}
+
+function generateDefaultResponse(query) {
+  return `
+    <div style="background: #f5f5f5; padding: 15px; border-radius: 5px; margin-bottom: 15px;">
+      <h4 style="color: #424242; margin-bottom: 10px;">🔍 Research Assistance</h4>
+      <p><strong>General Guidance:</strong></p>
+      <p>Thank you for your query: "${query.substring(0, 100)}..."</p>
+      
+      <p>I can help you with:</p>
+      <ul>
+        <li><strong>Research Design:</strong> Methodology selection and study design</li>
+        <li><strong>Data Analysis:</strong> Statistical techniques and interpretation</li>
+        <li><strong>Code Development:</strong> R/Python implementation</li>
+        <li><strong>Academic Writing:</strong> Structure and argumentation</li>
+      </ul>
+      
+      <p>Please feel free to ask more specific questions about any of these areas, and I'll provide detailed guidance tailored to your research needs.</p>
+    </div>
+  `;
+}
+
+function clearResponse() {
+  document.getElementById('ai-response').style.display = 'none';
+  document.getElementById('research-query').value = '';
+}
+
+// Add CSS for spinner animation
+const style = document.createElement('style');
+style.textContent = `
+  @keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }
+`;
+document.head.appendChild(style);
+</script>
+```
+
+## Interactive Data Analysis Example
+
+```{r}
+#| label: sample-analysis
+#| echo: true
+
+# Generate sample data for demonstration
+set.seed(42)
+n <- 1000
+
+sample_data <- tibble(
+  id = 1:n,
+  industry = sample(c("Manufacturing", "Services", "Technology", "Finance"), n, replace = TRUE),
+  ai_adoption = rbinom(n, 1, 0.3),
+  firm_size = rlnorm(n, 4, 1),
+  employment_change = rnorm(n, 
+    mean = ifelse(ai_adoption == 1, -0.05, 0.02), 
+    sd = 0.15),
+  productivity_change = rnorm(n, 
+    mean = ifelse(ai_adoption == 1, 0.12, 0.03), 
+    sd = 0.20)
+)
+
+# Display interactive table
+sample_data %>%
+  slice_head(n = 100) %>%
+  reactable(
+    columns = list(
+      employment_change = colDef(format = colFormat(digits = 3)),
+      productivity_change = colDef(format = colFormat(digits = 3)),
+      firm_size = colDef(format = colFormat(digits = 0))
+    ),
+    searchable = TRUE,
+    filterable = TRUE,
+    striped = TRUE,
+    highlight = TRUE,
+    bordered = TRUE,
+    theme = reactableTheme(
+      borderColor = "#dfe2e5",
+      stripedColor = "#f6f8fa",
+      highlightColor = "#f0f5ff",
+      cellPadding = "8px 12px"
+    )
+  )
+```
+
+## Interactive Visualization
+
+```{r}
+#| label: interactive-plot
+#| echo: true
+
+# Create interactive visualization
+p <- sample_data %>%
+  ggplot(aes(x = firm_size, y = employment_change, 
+             color = factor(ai_adoption), 
+             text = paste("Industry:", industry,
+                         "<br>Firm Size:", round(firm_size, 0),
+                         "<br>Employment Change:", round(employment_change, 3)))) +
+  geom_point(alpha = 0.6, size = 2) +
+  geom_smooth(method = "lm", se = TRUE, alpha = 0.3) +
+  scale_color_manual(values = c("0" = "#ff7f00", "1" = "#1f77b4"),
+                     labels = c("No AI", "AI Adopted")) +
+  labs(
+    title = "AI Adoption and Employment Effects by Firm Size",
+    x = "Firm Size (log scale)",
+    y = "Employment Change (%)",
+    color = "AI Adoption"
+  ) +
+  theme_minimal() +
+  theme(
+    plot.title = element_text(size = 14, face = "bold"),
+    legend.position = "bottom"
+  )
+
+# Convert to interactive plot
+ggplotly(p, tooltip = "text") %>%
+  layout(
+    title = list(text = "AI Adoption and Employment Effects by Firm Size", 
+                 font = list(size = 16)),
+    hovermode = "closest"
+  )
+```
+
+## Analysis Summary with AI Integration
+
+```{r}
+#| label: analysis-summary
+#| echo: true
+
+# Perform regression analysis
+model_employment <- lm(employment_change ~ ai_adoption + log(firm_size) + industry, 
+                      data = sample_data)
+
+model_productivity <- lm(productivity_change ~ ai_adoption + log(firm_size) + industry, 
+                        data = sample_data)
+
+# Create summary table
+modelsummary(
+  list("Employment Change" = model_employment,
+       "Productivity Change" = model_productivity),
+  stars = TRUE,
+  gof_map = c("nobs", "r.squared", "adj.r.squared"),
+  title = "Impact of AI Adoption on Labor Market Outcomes"
+)
+```
+
+## Research Workflow Integration
+
+### 1. Literature Review Assistant
+
+::: {.callout-note}
+## 📚 Literature Review Integration
+
+Use the AI assistant above to:
+
+- Generate literature search strategies
+- Identify key themes and gaps
+- Structure literature review sections
+- Suggest theoretical frameworks
+
+**Example Query:** "Help me structure a literature review on AI and labor markets, focusing on skill-biased technological change"
+:::
+
+### 2. Methodology Development
+
+::: {.callout-tip}
+## 🔬 Methodology Assistant
+
+Get guidance on:
+
+- Research design selection
+- Sampling strategies
+- Data collection methods
+- Analytical approaches
+
+**Example Query:** "I want to study firm-level AI adoption effects using panel data. What methodology should I consider?"
+:::
+
+### 3. Code Development Support
+
+::: {.callout-important}
+## 💻 Code Assistant
+
+Receive help with:
+
+- R/Python implementation
+- Statistical modeling
+- Data visualization
+- Debugging and optimization
+
+**Example Query:** "I need R code for instrumental variable estimation with firm-level clustered standard errors"
+:::
+
+### 4. Writing and Publication Support
+
+::: {.callout-warning}
+## ✍️ Writing Assistant
+
+Get support for:
+
+- Paper structure and argumentation
+- Results interpretation
+- Abstract and conclusion writing
+- Response to reviewer comments
+
+**Example Query:** "Help me write the discussion section for my paper on AI adoption and employment effects"
+:::
+
+## Implementation Notes
+
+### Setting Up Claude API Integration
+
+To make this fully functional with actual AI responses, you'll need to:
+
+1. **Get Claude API access** from Anthropic
+2. **Replace the mock responses** with actual API calls
+3. **Add proper error handling** and security measures
+4. **Implement conversation memory** for context continuity
+
+### Example API Integration Code
+
+```javascript
+// Add to your Quarto document's JavaScript section
+async function callClaudeAPI(query, context) {
+  const response = await fetch('https://api.anthropic.com/v1/messages', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+      'Authorization': 'Bearer YOUR_API_KEY',
+      'anthropic-version': '2023-06-01'
+    },
+    body: JSON.stringify({
+      model: 'claude-3-sonnet-20240229',
+      max_tokens: 1000,
+      messages: [{
+        role: 'user',
+        content: `Research Context: ${JSON.stringify(context)}
+        
+        Query: ${query}
+        
+        Please provide specific, actionable advice for this economics research query.`
+      }]
+    })
+  });
+  
+  const data = await response.json();
+  return data.content[0].text;
+}
+```
+
+## Benefits of This Approach
+
+1. **Seamless Integration**: AI assistance embedded directly in your research documents
+2. **Context Preservation**: Research context maintained throughout the document
+3. **Reproducible Research**: All queries and responses documented
+4. **Collaborative**: Easy to share with colleagues and co-authors
+5. **Version Control**: Works with Git and other version control systems
+
+## Next Steps
+
+1. **Customize the assistant** for your specific research areas
+2. **Add more sophisticated prompts** for different types of queries
+3. **Integrate with your existing R/Python workflows**
+4. **Deploy as interactive web documents** for broader access
+
+---
+
+*This interactive research assistant demonstrates the power of combining AI capabilities with Quarto's rich document features for enhanced academic research workflows.*

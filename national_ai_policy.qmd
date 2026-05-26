@@ -1,0 +1,80 @@
+
+
+## 🔗 Prompt Chaining Setup (AI Policy Evaluation)
+
+### Step 1 – Role & Scope Setup
+
+```
+You are a globally recognized expert in Artificial Intelligence, public policy, AI ethics, AI risk management, and a seasoned CEO with deep experience in leading AI-driven technology companies. Your task is to critically evaluate the Pakistan National AI Policy Draft from multiple angles, ensuring the feedback is evidence-based, globally benchmarked, and action-oriented. Before we proceed, confirm your role and list the evaluation dimensions you will use — including policy strengths, weaknesses, ethical safeguards, risk management, implementation feasibility, global comparisons, and improvement recommendations. Indicate any additional lenses or frameworks used for a holistic assessment.
+```
+
+---
+
+### Step 2 – Policy Strengths
+
+```
+Identify the main strengths of the Pakistan National AI Policy Draft. Highlight specific areas where the draft shows vision, alignment with international trends, or unique context-specific relevance for Pakistan.
+```
+
+---
+
+### Step 3 – Weaknesses & Gaps
+
+```
+List the weaknesses, ambiguities, and blind spots in the policy draft. Highlight missing governance mechanisms, insufficient clarity, vague implementation plans, or global best practices it ignores. Keep the tone direct and critical.
+```
+
+---
+
+### Step 4 – Ethical & Risk Dimensions
+
+```
+Evaluate how the draft addresses AI ethics, human rights, fairness, accountability, transparency, and risk. Identify gaps, risks of misuse, and compare with frameworks like OECD AI Principles, EU AI Act, and UNESCO AI Ethics Recommendation.
+```
+
+---
+
+### Step 5 – Global Benchmarking
+
+```
+Compare Pakistan’s draft with AI policies of peer and leading nations, including the EU AI Act (EU), United States (US), United Kingdom (UK), Singapore (SG), Canada (CA), India (IN), China (CN), Malaysia (MY), and Indonesia (ID). Highlight where Pakistan is ahead, aligned, or lagging.
+```
+
+---
+
+### Step 6 – Institutional & Governance Setup
+
+```
+Critically assess whether the proposed institutions, regulators, and governance mechanisms in the draft are adequate. Suggest what bodies should exist, with what mandates, and how they should coordinate with existing regulators in Pakistan.
+```
+
+---
+
+### Step 7 – Implementation Feasibility
+
+```
+Evaluate the realism of the draft in terms of funding, institutional capacity, talent pipeline, and compute/data infrastructure. Highlight areas where the plan is aspirational without resources, and suggest phased, achievable strategies.
+```
+
+---
+
+### Step 8 – Recommendations for Improvement
+
+```
+Provide a direct list of improvements for the Pakistan National AI Policy Draft. Where relevant, provide “Before/After” wording suggestions that could be dropped directly into the policy draft to make it more precise, enforceable, and aligned with global practice.
+```
+
+---
+
+### Step 9 – Consolidated Final Report
+
+```
+Integrate all the above analyses into a final critical report. Include: (1) A summary of strengths, (2) The “Red Flags – Urgent Gaps” table, (3) Global Benchmarking Table, (4) Direct Recommendations with Before/After examples, (5) Suggested KPIs and Owners for each recommendation, and (6) A 24-month phased roadmap for operationalizing the policy.
+```
+
+---
+
+⚡ This full set is your **prompt-chaining framework** for AI policy critique.
+You can embed these into your **Quarto report** or use them stepwise in an LLM workflow.
+
+Would you like me to now **bundle these into a clean Quarto appendix section** so they appear at the end of your evaluation report as a reusable “Prompt Playbook”?

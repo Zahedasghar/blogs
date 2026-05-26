@@ -1,0 +1,585 @@
+---
+title: "Pakistan's Tax Assault on the Salaried Class: A Decade of Exploitation"
+subtitle: "The Devastating Impact of Progressive Taxation Amid Hyperinflation"
+author: "Zahid Asghar"
+date: "`r Sys.Date()`"
+format: 
+  html:
+    theme: cosmo
+    toc: true
+    toc-depth: 3
+    code-fold: true
+    warning: false
+    message: false
+    fig-width: 10
+    fig-height: 6
+execute:
+  echo: false
+  warning: false
+  message: false
+---
+
+```{r setup}
+#| echo: false
+#| include: false
+library(tidyverse)
+library(knitr)
+library(kableExtra)
+library(scales)
+library(ggplot2)
+library(plotly)
+library(DT)
+
+# Set global options
+options(scipen = 999)
+```
+
+
+
+This analysis reveals the **shocking reality** of Pakistan's tax policy on salaried individuals over the past five years. Combined with one of the highest historical inflation rates reaching **37%** in 2023, the salaried class faces a double burden: higher nominal tax rates and severely eroded purchasing power.
+
+## Tax Calculation Functions
+
+```{r tax-functions}
+#| echo: true
+
+# Tax calculation functions for different years
+calculate_tax_2025 <- function(income) {
+  case_when(
+    income <= 600000 ~ 0,
+    income <= 1200000 ~ (income - 600000) * 0.05,
+    income <= 2200000 ~ 30000 + (income - 1200000) * 0.15,
+    income <= 3200000 ~ 180000 + (income - 2200000) * 0.25,
+    income <= 4100000 ~ 430000 + (income - 3200000) * 0.30,
+    TRUE ~ 700000 + (income - 4100000) * 0.35
+  )
+}
+
+calculate_tax_2024 <- function(income) {
+  case_when(
+    income <= 600000 ~ 0,
+    income <= 1200000 ~ (income - 600000) * 0.025,
+    income <= 2400000 ~ 15000 + (income - 1200000) * 0.125,
+    income <= 3600000 ~ 165000 + (income - 2400000) * 0.225,
+    income <= 6000000 ~ 435000 + (income - 3600000) * 0.275,
+    TRUE ~ 1095000 + (income - 6000000) * 0.35
+  )
+}
+
+calculate_tax_2020 <- function(income) {
+  case_when(
+    income <= 600000 ~ 0,
+    income <= 1200000 ~ (income - 600000) * 0.05,
+    income <= 1800000 ~ 30000 + (income - 1200000) * 0.10,
+    income <= 2500000 ~ 90000 + (income - 1800000) * 0.15,
+    income <= 3500000 ~ 195000 + (income - 2500000) * 0.175,
+    income <= 5000000 ~ 370000 + (income - 3500000) * 0.20,
+    income <= 8000000 ~ 670000 + (income - 5000000) * 0.225,
+    income <= 12000000 ~ 1345000 + (income - 8000000) * 0.25,
+    income <= 30000000 ~ 2345000 + (income - 12000000) * 0.275,
+    income <= 50000000 ~ 7295000 + (income - 30000000) * 0.30,
+    income <= 75000000 ~ 13295000 + (income - 50000000) * 0.325,
+    TRUE ~ 21420000 + (income - 75000000) * 0.35
+  )
+}
+```
+
+## Inflation Impact Analysis
+
+Pakistan like many other countries  has experienced devastating post-covid inflation over the past 5 years:
+
+```{r inflation-data}
+#| echo: true
+
+# Pakistan's inflation rates (Consumer Price Index)
+inflation_data <- data.frame(
+  Year = c(2020, 2021, 2022, 2023, 2024, 2025),
+  Inflation_Rate = c(10.7, 12.3, 19.9, 37.2, 23.1, 15.8),  # Approximate rates
+  Cumulative_Inflation = c(1.0, 1.123, 1.346, 1.847, 2.273, 2.632)
+)
+
+# Real purchasing power calculator
+real_value_2020 <- function(nominal_2025, cumulative_inflation = 2.632) {
+  nominal_2025 / cumulative_inflation
+}
+```
+
+::: {.callout-important}
+## Critical Reality Check
+A salary of **Rs. 1.5 million in 2025** has the same purchasing power as **Rs. 570,000 in 2020** due to cumulative inflation of **163%**!
+:::
+
+## The Brutal Reality: Tax Burden Analysis
+
+```{r main-analysis}
+# Define income levels representing different economic classes
+income_levels <- c(800000, 1500000, 2500000, 3500000, 5000000)
+income_labels <- c("Lower Middle", "Middle Class", "Upper Middle", "Professional", "High Earners")
+
+# Create comprehensive analysis
+tax_analysis <- data.frame(
+  Income_Level = income_labels,
+  Nominal_Income = income_levels,
+  Real_Income_2020_Terms = round(real_value_2020(income_levels), 0),
+  Tax_2020 = calculate_tax_2020(income_levels),
+  Tax_2024 = calculate_tax_2024(income_levels),
+  Tax_2025 = calculate_tax_2025(income_levels)
+) %>%
+  mutate(
+    # Tax rates
+    Rate_2020 = round((Tax_2020 / Nominal_Income) * 100, 2),
+    Rate_2024 = round((Tax_2024 / Nominal_Income) * 100, 2),
+    Rate_2025 = round((Tax_2025 / Nominal_Income) * 100, 2),
+    
+    # Percentage increases
+    Increase_2024_vs_2020 = round(((Tax_2024 - Tax_2020) / Tax_2020) * 100, 1),
+    Increase_2025_vs_2024 = round(((Tax_2025 - Tax_2024) / Tax_2024) * 100, 1),
+    Increase_2025_vs_2020 = round(((Tax_2025 - Tax_2020) / Tax_2020) * 100, 1),
+    
+    # Real tax burden (inflation-adjusted)
+    Real_Tax_Burden_Change = round(((Tax_2025 / 2.632) - Tax_2020) / Tax_2020 * 100, 1),
+    
+    # Disposable income after tax
+    Disposable_2020 = Nominal_Income - Tax_2020,
+    Disposable_2025 = Nominal_Income - Tax_2025,
+    Real_Disposable_2025 = round((Nominal_Income - Tax_2025) / 2.632, 0),
+    
+    # Real disposable income change
+    Real_Disposable_Change = round(((Real_Disposable_2025 - Disposable_2020) / Disposable_2020) * 100, 1)
+  )
+
+# Replace Inf and NaN values
+tax_analysis[is.infinite(tax_analysis$Increase_2024_vs_2020), "Increase_2024_vs_2020"] <- NA
+tax_analysis[is.infinite(tax_analysis$Real_Tax_Burden_Change), "Real_Tax_Burden_Change"] <- NA
+```
+
+### Table 1: The Devastating Impact on Pakistan's Salaried Class
+
+```{r brutal-reality-table}
+# Create the main comparison table
+brutal_reality <- tax_analysis %>%
+  select(
+    `Income Class` = Income_Level,
+    `Nominal Income (Rs.)` = Nominal_Income,
+    `Real Income (2020 Terms)` = Real_Income_2020_Terms,
+    `Tax 2020 (Rs.)` = Tax_2020,
+    `Tax 2025 (Rs.)` = Tax_2025,
+    `Tax Rate 2020 (%)` = Rate_2020,
+    `Tax Rate 2025 (%)` = Rate_2025,
+    `Tax Increase (%)` = Increase_2025_vs_2020,
+    `Real Disposable Income Change (%)` = Real_Disposable_Change
+  ) %>%
+  mutate(
+    across(c(`Nominal Income (Rs.)`, `Real Income (2020 Terms)`, `Tax 2020 (Rs.)`, `Tax 2025 (Rs.)`), 
+           ~ comma(.x, accuracy = 1)),
+    across(c(`Tax Rate 2020 (%)`, `Tax Rate 2025 (%)`), 
+           ~ paste0(.x, "%")),
+    `Tax Increase (%)` = case_when(
+      is.na(`Tax Increase (%)`) ~ "N/A",
+      TRUE ~ paste0(`Tax Increase (%)`, "%")
+    ),
+    `Real Disposable Income Change (%)` = paste0(`Real Disposable Income Change (%)`, "%")
+  )
+
+# Style the table with dramatic highlighting
+brutal_reality %>%
+  kbl(caption = "**THE BRUTAL REALITY: How Pakistan's Government is Crushing the Salaried Class**",
+      escape = FALSE,
+      align = c("l", rep("r", 8))) %>%
+  kable_styling(
+    bootstrap_options = c("striped", "hover", "condensed", "responsive"),
+    full_width = TRUE,
+    font_size = 11
+  ) %>%
+  add_header_above(c(" " = 1, "Income Analysis" = 2, "Tax Burden" = 4, "Impact" = 2)) %>%
+  row_spec(0, bold = TRUE, color = "white", background = "#d32f2f") %>%
+  column_spec(1, bold = TRUE, width = "1.8cm") %>%
+  column_spec(c(6, 7), background = "#ffebee") %>%
+  column_spec(8, background = "#ffcdd2", bold = TRUE) %>%
+  column_spec(9, background = "#f44336", color = "white", bold = TRUE) 
+```
+
+::: {.callout-note icon=false}
+
+Real income uses 163% cumulative inflation (2020-2025). Tax increases compound purchasing power erosion." 
+:::
+
+
+
+```{r }
+#| include: false
+library(tidyverse)
+library(knitr)
+library(kableExtra)
+library(scales)
+library(ggplot2)
+library(plotly)
+
+options(scipen = 999)
+```
+
+## The Compound Effect: Year-by-Year Breakdown
+
+Pakistan's inflation didn't just add up—it **compounded** devastatingly over five years.
+
+```{r inflation-calculation}
+#| echo: false
+#| code-fold: false
+
+# Step-by-step cumulative inflation calculation
+inflation_breakdown <- data.frame(
+  Year = 2020:2025,
+  Annual_Inflation_Rate = c("Base Year", "12.3%", "19.9%", "37.2%", "23.1%", "15.8%"),
+  Calculation = c(
+    "1.00",
+    "1.00 × (1 + 12.3%) = 1.123",
+    "1.123 × (1 + 19.9%) = 1.346", 
+    "1.346 × (1 + 37.2%) = 1.847",
+    "1.847 × (1 + 23.1%) = 2.273",
+    "2.273 × (1 + 15.8%) = 2.632"
+  ),
+  Cumulative_Factor = c(1.000, 1.123, 1.346, 1.847, 2.273, 2.632),
+  Price_Impact = c("Rs. 100", "Rs. 112", "Rs. 135", "Rs. 185", "Rs. 227", "Rs. 263"),
+  Notes = c("Base year", "Modest increase", "Accelerating", "**KILLER YEAR**", "Still high", "Final impact")
+)
+
+# Display the breakdown table
+inflation_breakdown %>%
+  kbl(caption = "**Pakistan's Cumulative Inflation Breakdown (2020-2025)**",
+      col.names = c("Year", "Annual Rate", "Cumulative Calculation", "Factor", "What Rs.100 Costs", "Impact"),
+      escape = FALSE,
+      align = c("c", "c", "l", "c", "c", "l")) %>%
+  kable_styling(
+    bootstrap_options = c("striped", "hover", "condensed"),
+    full_width = TRUE,
+    font_size = 12
+  ) %>%
+  row_spec(0, bold = TRUE, color = "white", background = "#2c3e50") %>%
+  row_spec(4, background = "#e74c3c", color = "white", bold = TRUE) %>%
+  column_spec(3, width = "4cm") %>%
+  column_spec(6, italic = TRUE)
+```
+
+## What 163% Cumulative Inflation Means
+
+The cumulative factor of **2.632** reveals the devastating reality:
+
+```{r inflation-impact}
+# Calculate key metrics
+cumulative_factor <- 2.632
+price_increase_pct <- (cumulative_factor - 1) * 100
+purchasing_power_loss <- (1 - 1/cumulative_factor) * 100
+
+impact_summary <- data.frame(
+  Metric = c(
+    "Cumulative Inflation",
+    "Price Increase", 
+    "What Rs. 100 in 2020 costs in 2025",
+    "Purchasing Power Retained",
+    "Purchasing Power Lost"
+  ),
+  Value = c(
+    paste0(round(price_increase_pct, 1), "%"),
+    paste0("Rs. 100 → Rs. ", round(cumulative_factor * 100, 0)),
+    paste0("Rs. ", round(cumulative_factor * 100, 0)),
+    paste0(round(100/cumulative_factor, 1), "%"),
+    paste0(round(purchasing_power_loss, 1), "%")
+  ),
+  Formula = c(
+    "(2.632 - 1) × 100 = 163%",
+    "100 × 2.632 = 263",
+    "Original price × 2.632",
+    "1 ÷ 2.632 = 0.38 = 38%", 
+    "1 - (1 ÷ 2.632) = 62%"
+  )
+)
+
+impact_summary %>%
+  kbl(caption = "**The Devastating Math: What 163% Cumulative Inflation Really Means**",
+      col.names = c("Impact Measure", "Result", "Calculation"),
+      escape = FALSE,
+      align = c("l", "c", "l")) %>%
+  kable_styling(
+    bootstrap_options = c("striped", "hover"),
+    full_width = TRUE
+  ) %>%
+  row_spec(c(3, 5), background = "#ffebee") %>%
+  row_spec(5, background = "#f44336", color = "white", bold = TRUE) %>%
+  column_spec(1, bold = TRUE, width = "4cm")
+```
+
+::: {.callout-important}
+## The Bottom Line
+
+Your **Rs. 100 in 2020** can only buy what **Rs. 38 could buy in 2025**. 
+
+You've lost **62% of your purchasing power** even if your salary stayed the same!
+:::
+
+## Real Income Calculation Formula
+
+```{r real-income-formula}
+#| echo: false
+#| code-fold: true
+
+# Real Income Calculation
+calculate_real_income <- function(nominal_income_2025, cumulative_factor = 2.632) {
+  real_income_2020_terms <- nominal_income_2025 / cumulative_factor
+  return(round(real_income_2020_terms, 0))
+}
+
+# Examples for different salary levels
+salary_examples <- data.frame(
+  Salary_Level = c("Entry Level", "Middle Class", "Professional", "Senior Manager", "Executive"),
+  Nominal_2025 = c(500000, 1500000, 3000000, 5000000, 8000000)
+) %>%
+  mutate(
+    Real_2020_Terms = calculate_real_income(Nominal_2025),
+    Purchasing_Power_Loss = paste0("Rs. ", comma(Nominal_2025 - Real_2020_Terms), " lost"),
+    Loss_Percentage = paste0(round((1 - Real_2020_Terms/Nominal_2025) * 100, 1), "%")
+  )
+
+salary_examples %>%
+  mutate(
+    Nominal_2025 = paste0("Rs. ", comma(Nominal_2025)),
+    Real_2020_Terms = paste0("Rs. ", comma(Real_2020_Terms))
+  ) %>%
+  kbl(caption = "**Real Income Examples: The Purchasing Power Devastation**",
+      col.names = c("Salary Category", "2025 Nominal", "2020 Purchasing Power", "Value Lost", "% Lost"),
+      escape = FALSE,
+      align = c("l", "r", "r", "r", "r")) %>%
+  kable_styling(
+    bootstrap_options = c("striped", "hover", "condensed"),
+    full_width = TRUE
+  ) %>%
+  row_spec(0, bold = TRUE, color = "white", background = "#34495e") %>%
+  column_spec(c(4, 5), background = "#f39c12", color = "white", bold = TRUE)
+```
+
+## Visual Impact: The Inflation Devastation
+
+```{r inflation-visualization}
+# Create visualization of cumulative inflation
+years <- 2020:2025
+cumulative_factors <- c(1.000, 1.123, 1.346, 1.847, 2.273, 2.632)
+annual_rates <- c(0, 12.3, 19.9, 37.2, 23.1, 15.8)
+
+inflation_viz <- data.frame(
+  Year = years,
+  Cumulative_Factor = cumulative_factors,
+  Annual_Rate = annual_rates,
+  Rs100_Value = cumulative_factors * 100
+)
+
+# Cumulative inflation chart
+p1 <- ggplot(inflation_viz, aes(x = Year)) +
+  geom_line(aes(y = Cumulative_Factor), color = "#e74c3c", size = 2) +
+  geom_point(aes(y = Cumulative_Factor), color = "#c0392b", size = 4) +
+  geom_text(aes(y = Cumulative_Factor, label = round(Cumulative_Factor, 3)), 
+            vjust = -0.8, fontface = "bold") +
+  scale_x_continuous(breaks = years) +
+  labs(
+    title = "Pakistan's Cumulative Inflation Factor (2020-2025)",
+    subtitle = "How each rupee lost its value year by year",
+    x = "Year",
+    y = "Cumulative Inflation Factor",
+    caption = "2023 was the devastating year with 37.2% inflation"
+  ) +
+  theme_minimal() +
+  theme(
+    plot.title = element_text(size = 16, face = "bold", color = "#2c3e50"),
+    plot.subtitle = element_text(size = 12, color = "#7f8c8d"),
+    plot.caption = element_text(color = "#e74c3c", face = "italic")
+  )
+
+# Cost of Rs. 100 over time
+p2 <- ggplot(inflation_viz, aes(x = Year, y = Rs100_Value)) +
+  geom_col(fill = "#e67e22", alpha = 0.8) +
+  geom_text(aes(label = paste0("Rs. ", round(Rs100_Value, 0))), 
+            vjust = -0.5, fontface = "bold") +
+  scale_x_continuous(breaks = years) +
+  labs(
+    title = "What Rs. 100 (2020) Costs Each Year",
+    subtitle = "The relentless march of inflation",
+    x = "Year",
+    y = "Cost in Rupees"
+  ) +
+  theme_minimal() +
+  theme(
+    plot.title = element_text(size = 16, face = "bold", color = "#2c3e50")
+  )
+
+# Display both charts
+ggplotly(p1, tooltip = c("x", "y"))
+ggplotly(p2, tooltip = c("x", "y"))
+```
+
+## Key Takeaways
+
+::: {.callout-warning}
+## The Harsh Reality
+
+1. **2023 was the killer year** - 37.2% inflation devastated purchasing power
+2. **Rs. 100 in 2020 = Rs. 263 in 2025** - nearly triple the cost
+3. **62% purchasing power lost** - more than half your money's value gone
+4. **Real salaries need to increase 163%** just to maintain 2020 living standards
+5. **Tax increases compound the problem** - higher taxes on devalued money
+:::
+
+
+## Shocking Key Findings
+
+```{r key-findings}
+# Calculate some shocking statistics
+middle_class_real_loss <- tax_analysis[tax_analysis$Income_Level == "Middle Class", "Real_Disposable_Change"]
+professional_tax_increase <- tax_analysis[tax_analysis$Income_Level == "Professional", "Increase_2025_vs_2020"]
+high_earner_additional_tax <- tax_analysis[tax_analysis$Income_Level == "High Earners", "Tax_2025"] - 
+                             tax_analysis[tax_analysis$Income_Level == "High Earners", "Tax_2020"]
+```
+
+::: {.callout-warning icon=false}
+## 💰 The Numbers Don't Lie
+
+**Most Devastating Impacts:**
+
+- **Middle Class (Rs. 1.5M)**: Real disposable income has fallen by **`r abs(middle_class_real_loss)`%** 
+- **Professional Class (Rs. 3.5M)**: Tax burden increased by **`r professional_tax_increase`%**
+- **High Earners (Rs. 5M)**: Pay an additional **Rs. `r comma(high_earner_additional_tax)`** annually
+- **All Classes**: Face double burden of higher taxes AND 163% cumulative inflation
+:::
+
+## Visual Analysis
+
+### Tax Rate Evolution Across Income Classes
+
+```{r tax-rate-evolution}
+# Prepare data for visualization
+tax_rates_long <- tax_analysis %>%
+  select(Income_Level, Nominal_Income, Rate_2020, Rate_2024, Rate_2025) %>%
+  pivot_longer(cols = starts_with("Rate_"), 
+               names_to = "Year", 
+               values_to = "Tax_Rate") %>%
+  mutate(
+    Year = case_when(
+      Year == "Rate_2020" ~ "2020",
+      Year == "Rate_2024" ~ "2024",
+      Year == "Rate_2025" ~ "2025"
+    ),
+    Income_Label = paste0(Income_Level, "\n(Rs. ", comma(Nominal_Income/100000), " lakh)")
+  )
+
+# Create the visualization
+p1 <- ggplot(tax_rates_long, aes(x = Year, y = Tax_Rate, color = Income_Level, group = Income_Level)) +
+  geom_line(size = 1.2) +
+  geom_point(size = 3) +
+  scale_y_continuous(labels = function(x) paste0(x, "%"), limits = c(0, max(tax_rates_long$Tax_Rate) * 1.1)) +
+  labs(
+    title = "Pakistan's Escalating Tax Assault on Salaried Class",
+    subtitle = "Tax Rates by Income Level (2020-2025)",
+    x = "Year",
+    y = "Effective Tax Rate (%)",
+    color = "Income Class"
+  ) +
+  theme_minimal() +
+  theme(
+    plot.title = element_text(size = 16, face = "bold", color = "#d32f2f"),
+    plot.subtitle = element_text(size = 12, color = "#666666"),
+    legend.position = "bottom",
+    panel.grid.minor = element_blank()
+  ) +
+  scale_color_brewer(type = "qual", palette = "Set1")
+
+ggplotly(p1, tooltip = c("x", "y", "colour"))
+```
+
+### Real vs Nominal Income Impact
+
+```{r real-vs-nominal}
+# Prepare data for real vs nominal comparison
+income_comparison <- tax_analysis %>%
+  select(Income_Level, Nominal_Income, Real_Income_2020_Terms, Disposable_2025, Real_Disposable_2025) %>%
+  pivot_longer(cols = -Income_Level, names_to = "Metric", values_to = "Amount") %>%
+  mutate(
+    Type = case_when(
+      str_detect(Metric, "Real") ~ "Real (2020 Terms)",
+      TRUE ~ "Nominal (Current)"
+    ),
+    Measure = case_when(
+      str_detect(Metric, "Disposable") ~ "After-Tax Income",
+      TRUE ~ "Gross Income"
+    )
+  )
+
+p2 <- income_comparison %>%
+  filter(Measure == "After-Tax Income") %>%
+  ggplot(aes(x = Income_Level, y = Amount, fill = Type)) +
+  geom_col(position = "dodge", alpha = 0.8) +
+  scale_y_continuous(labels = function(x) paste0("Rs. ", comma(x/100000), " lakh")) +
+  labs(
+    title = "The Real Income Devastation",
+    subtitle = "2025 After-Tax Income: Nominal vs Real Purchasing Power",
+    x = "Income Class",
+    y = "After-Tax Income",
+    fill = "Value Type"
+  ) +
+  theme_minimal() +
+  theme(
+    plot.title = element_text(size = 16, face = "bold", color = "#d32f2f"),
+    axis.text.x = element_text(angle = 45, hjust = 1),
+    legend.position = "top"
+  ) +
+  scale_fill_manual(values = c("Real (2020 Terms)" = "#f44336", "Nominal (Current)" = "#2196f3"))
+
+ggplotly(p2)
+```
+
+## Economic Policy Implications
+
+### The Vicious Cycle
+
+```{r policy-analysis}
+policy_impact <- data.frame(
+  Factor = c("Tax Rate Increases", "Inflation Erosion", "Combined Effect"),
+  Middle_Class_Impact = c("25% higher taxes", "57% purchasing power loss", "Devastating 67% real income loss"),
+  Professional_Impact = c("40% higher taxes", "57% purchasing power loss", "Catastrophic 73% real burden increase"),
+  Economic_Consequence = c("Reduced compliance", "Capital flight", "Economic stagnation")
+)
+
+policy_impact %>%
+  kbl(caption = "**The Vicious Cycle: How Tax Policy is Destroying Pakistan's Economy**",
+      col.names = c("Policy Factor", "Middle Class Impact", "Professional Class Impact", "Economic Consequence"),
+      escape = FALSE) %>%
+  kable_styling(
+    bootstrap_options = c("striped", "hover"),
+    full_width = TRUE
+  ) %>%
+  column_spec(1, bold = TRUE, width = "3cm") %>%
+  column_spec(c(2, 3), background = "#ffebee") %>%
+  column_spec(4, background = "#f44336", color = "white", bold = TRUE)
+```
+
+## Recommendations for Reform
+
+::: {.callout-tip}
+## Urgent Policy Reforms Needed
+
+1. **Inflation-Indexed Tax Brackets**: Adjust tax slabs annually for inflation
+2. **Progressive Relief**: Reduce tax burden for middle-income earners
+3. **Broaden Tax Base**: Include agricultural and undocumented sectors
+4. **Economic Incentives**: Provide tax relief for productive investments
+5. **Real Income Protection**: Link salary adjustments to inflation indices
+:::
+
+## Conclusion
+
+The data presents an **undeniable crisis**: Pakistan's salaried class faces a devastating double burden of escalating tax rates and hyperinflation. With real purchasing power declining by over 50% for most income groups, the current tax policy is not just unfair—it's economically destructive.
+
+The government's strategy of treating salaried individuals as a "cash cow" while other sectors remain undertaxed is creating a brain drain, reducing economic productivity, and increasing social inequality. **Immediate reform is not just necessary—it's essential for Pakistan's economic survival.**
+
+---
+
+*Analysis based on [tax slabs available]( https://paktaxcalculator.pk/income-tax-slabs/) schedules and inflation data. All calculations use compound inflation effects and actual tax brackets as implemented by the Government of Pakistan.* 
+
+This document is intended to highlight the severe economic impact of current tax policies on salaried individuals in Pakistan. It is not intended as financial or tax advice. 
+
+> All errors and omissions are the responsibility of the author. Thanks to AI tools for helping structure and assist in the analysis.

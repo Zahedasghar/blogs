@@ -1,0 +1,894 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.7.32">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>claude – AI for Teachers, Researchers and Students</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<script src="site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-37eea08aefeeee20ff55810ff984fec1.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap-6034dd72b7d63ffdd883bd1054d61557.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+
+<link rel="stylesheet" href="style.scss">
+</head>
+
+<body class="nav-sidebar docked quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
+    <div class="pt-lg-2 mt-2 text-center sidebar-header">
+      <a href="./index.html" class="sidebar-logo-link">
+      <img src="./images/LLM.webp" alt="" class="sidebar-logo py-0 d-lg-inline d-none">
+      </a>
+      <div class="sidebar-tools-main">
+    <a href="https://github.com/Zahedasghar" title="GitHub" class="quarto-navigation-tool px-1" aria-label="GitHub"><i class="bi bi-github"></i></a>
+</div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Home</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./schedule.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Schedule</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./materials.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Materials</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="https://discord.com/channels/1292187441565794316/1292187441565794319" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Discord</span></a>
+  </div>
+</li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#claude-ai-workshop-advanced-applications-for-economics-research-and-teaching" id="toc-claude-ai-workshop-advanced-applications-for-economics-research-and-teaching" class="nav-link active" data-scroll-target="#claude-ai-workshop-advanced-applications-for-economics-research-and-teaching">Claude AI Workshop: Advanced Applications for Economics Research and Teaching</a>
+  <ul class="collapse">
+  <li><a href="#workshop-overview" id="toc-workshop-overview" class="nav-link" data-scroll-target="#workshop-overview">Workshop Overview</a></li>
+  <li><a href="#learning-objectives" id="toc-learning-objectives" class="nav-link" data-scroll-target="#learning-objectives">Learning Objectives</a></li>
+  <li><a href="#part-1-setting-up-claude-for-academic-work" id="toc-part-1-setting-up-claude-for-academic-work" class="nav-link" data-scroll-target="#part-1-setting-up-claude-for-academic-work">Part 1: Setting Up Claude for Academic Work</a>
+  <ul class="collapse">
+  <li><a href="#recommended-settings" id="toc-recommended-settings" class="nav-link" data-scroll-target="#recommended-settings">Recommended Settings</a></li>
+  </ul></li>
+  <li><a href="#part-2-claude-projects-for-research-organization" id="toc-part-2-claude-projects-for-research-organization" class="nav-link" data-scroll-target="#part-2-claude-projects-for-research-organization">Part 2: Claude Projects for Research Organization</a>
+  <ul class="collapse">
+  <li><a href="#use-case-managing-multiple-research-projects" id="toc-use-case-managing-multiple-research-projects" class="nav-link" data-scroll-target="#use-case-managing-multiple-research-projects">Use Case: Managing Multiple Research Projects</a></li>
+  <li><a href="#prompt-template-for-research-projects" id="toc-prompt-template-for-research-projects" class="nav-link" data-scroll-target="#prompt-template-for-research-projects">Prompt Template for Research Projects</a></li>
+  </ul></li>
+  <li><a href="#part-3-data-analysis-and-visualization" id="toc-part-3-data-analysis-and-visualization" class="nav-link" data-scroll-target="#part-3-data-analysis-and-visualization">Part 3: Data Analysis and Visualization</a>
+  <ul class="collapse">
+  <li><a href="#prompt-1-initial-data-exploration" id="toc-prompt-1-initial-data-exploration" class="nav-link" data-scroll-target="#prompt-1-initial-data-exploration">Prompt 1: Initial Data Exploration</a></li>
+  <li><a href="#prompt-2-customermarket-segmentation-analysis" id="toc-prompt-2-customermarket-segmentation-analysis" class="nav-link" data-scroll-target="#prompt-2-customermarket-segmentation-analysis">Prompt 2: Customer/Market Segmentation Analysis</a></li>
+  <li><a href="#prompt-3-time-series-visualization" id="toc-prompt-3-time-series-visualization" class="nav-link" data-scroll-target="#prompt-3-time-series-visualization">Prompt 3: Time Series Visualization</a></li>
+  </ul></li>
+  <li><a href="#part-4-research-document-creation" id="toc-part-4-research-document-creation" class="nav-link" data-scroll-target="#part-4-research-document-creation">Part 4: Research Document Creation</a>
+  <ul class="collapse">
+  <li><a href="#prompt-4-literature-review-synthesis" id="toc-prompt-4-literature-review-synthesis" class="nav-link" data-scroll-target="#prompt-4-literature-review-synthesis">Prompt 4: Literature Review Synthesis</a></li>
+  <li><a href="#prompt-5-research-proposal-development" id="toc-prompt-5-research-proposal-development" class="nav-link" data-scroll-target="#prompt-5-research-proposal-development">Prompt 5: Research Proposal Development</a></li>
+  </ul></li>
+  <li><a href="#part-5-interactive-content-creation" id="toc-part-5-interactive-content-creation" class="nav-link" data-scroll-target="#part-5-interactive-content-creation">Part 5: Interactive Content Creation</a>
+  <ul class="collapse">
+  <li><a href="#prompt-6-economic-dashboard-from-reports" id="toc-prompt-6-economic-dashboard-from-reports" class="nav-link" data-scroll-target="#prompt-6-economic-dashboard-from-reports">Prompt 6: Economic Dashboard from Reports</a></li>
+  <li><a href="#prompt-7-teaching-material-generation" id="toc-prompt-7-teaching-material-generation" class="nav-link" data-scroll-target="#prompt-7-teaching-material-generation">Prompt 7: Teaching Material Generation</a></li>
+  </ul></li>
+  <li><a href="#part-6-advanced-analysis-workflows" id="toc-part-6-advanced-analysis-workflows" class="nav-link" data-scroll-target="#part-6-advanced-analysis-workflows">Part 6: Advanced Analysis Workflows</a>
+  <ul class="collapse">
+  <li><a href="#prompt-8-econometric-analysis-setup" id="toc-prompt-8-econometric-analysis-setup" class="nav-link" data-scroll-target="#prompt-8-econometric-analysis-setup">Prompt 8: Econometric Analysis Setup</a></li>
+  <li><a href="#prompt-9-policy-impact-assessment" id="toc-prompt-9-policy-impact-assessment" class="nav-link" data-scroll-target="#prompt-9-policy-impact-assessment">Prompt 9: Policy Impact Assessment</a></li>
+  </ul></li>
+  <li><a href="#part-7-research-communication" id="toc-part-7-research-communication" class="nav-link" data-scroll-target="#part-7-research-communication">Part 7: Research Communication</a>
+  <ul class="collapse">
+  <li><a href="#prompt-10-academic-writing-enhancement" id="toc-prompt-10-academic-writing-enhancement" class="nav-link" data-scroll-target="#prompt-10-academic-writing-enhancement">Prompt 10: Academic Writing Enhancement</a></li>
+  <li><a href="#prompt-11-conference-presentation-creation" id="toc-prompt-11-conference-presentation-creation" class="nav-link" data-scroll-target="#prompt-11-conference-presentation-creation">Prompt 11: Conference Presentation Creation</a></li>
+  </ul></li>
+  <li><a href="#best-practices-for-economics-research" id="toc-best-practices-for-economics-research" class="nav-link" data-scroll-target="#best-practices-for-economics-research">Best Practices for Economics Research</a>
+  <ul class="collapse">
+  <li><a href="#effective-prompting-strategies" id="toc-effective-prompting-strategies" class="nav-link" data-scroll-target="#effective-prompting-strategies">Effective Prompting Strategies</a></li>
+  <li><a href="#quality-control-tips" id="toc-quality-control-tips" class="nav-link" data-scroll-target="#quality-control-tips">Quality Control Tips</a></li>
+  </ul></li>
+  <li><a href="#troubleshooting-common-issues" id="toc-troubleshooting-common-issues" class="nav-link" data-scroll-target="#troubleshooting-common-issues">Troubleshooting Common Issues</a>
+  <ul class="collapse">
+  <li><a href="#when-claude-makes-errors" id="toc-when-claude-makes-errors" class="nav-link" data-scroll-target="#when-claude-makes-errors">When Claude Makes Errors</a></li>
+  <li><a href="#improving-output-quality" id="toc-improving-output-quality" class="nav-link" data-scroll-target="#improving-output-quality">Improving Output Quality</a></li>
+  </ul></li>
+  <li><a href="#workshop-exercise" id="toc-workshop-exercise" class="nav-link" data-scroll-target="#workshop-exercise">Workshop Exercise</a></li>
+  <li><a href="#additional-resources" id="toc-additional-resources" class="nav-link" data-scroll-target="#additional-resources">Additional Resources</a></li>
+  <li><a href="#conclusion" id="toc-conclusion" class="nav-link" data-scroll-target="#conclusion">Conclusion</a></li>
+  </ul></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"></header>
+
+
+
+
+<section id="claude-ai-workshop-advanced-applications-for-economics-research-and-teaching" class="level1">
+<h1>Claude AI Workshop: Advanced Applications for Economics Research and Teaching</h1>
+<section id="workshop-overview" class="level2">
+<h2 class="anchored" data-anchor-id="workshop-overview">Workshop Overview</h2>
+<p>This workshop demonstrates how to leverage Claude AI for economics research, data analysis, and academic workflows. We’ll explore Claude’s key features through practical examples relevant to economic research and teaching.</p>
+</section>
+<section id="learning-objectives" class="level2">
+<h2 class="anchored" data-anchor-id="learning-objectives">Learning Objectives</h2>
+<p>By the end of this workshop, participants will be able to:</p>
+<ul>
+<li>Configure Claude for optimal performance in academic settings</li>
+<li>Use Claude’s Projects feature for research organization</li>
+<li>Create interactive data visualizations and dashboards</li>
+<li>Analyze economic data using Claude’s analysis tools</li>
+<li>Generate research-ready content and documentation</li>
+</ul>
+</section>
+<section id="part-1-setting-up-claude-for-academic-work" class="level2">
+<h2 class="anchored" data-anchor-id="part-1-setting-up-claude-for-academic-work">Part 1: Setting Up Claude for Academic Work</h2>
+<section id="recommended-settings" class="level3">
+<h3 class="anchored" data-anchor-id="recommended-settings">Recommended Settings</h3>
+<p><strong>Profile Configuration:</strong> - Enable <strong>Artifacts</strong> for complex outputs (code, visualizations, documents) - Enable <strong>Analysis tool</strong> for data processing and visualization - Connect <strong>Google Drive</strong> for seamless document integration - Enable <strong>CSV chat suggestions</strong> for data analysis workflows</p>
+<p><strong>Key Insight:</strong> Unlike other AI tools, Claude’s default output is already well-structured for academic work - minimal custom instructions needed.</p>
+</section>
+</section>
+<section id="part-2-claude-projects-for-research-organization" class="level2">
+<h2 class="anchored" data-anchor-id="part-2-claude-projects-for-research-organization">Part 2: Claude Projects for Research Organization</h2>
+<section id="use-case-managing-multiple-research-projects" class="level3">
+<h3 class="anchored" data-anchor-id="use-case-managing-multiple-research-projects">Use Case: Managing Multiple Research Projects</h3>
+<p>Claude Projects allow you to maintain context across related conversations while keeping different research streams organized.</p>
+<p><strong>Project Structure Example:</strong></p>
+<pre><code>Project Level Context: Economic Theory Framework, Literature Review
+├── Chat 1: Empirical Analysis (Dataset A)
+├── Chat 2: Policy Implications
+└── Chat 3: Comparative Analysis (Dataset B)</code></pre>
+</section>
+<section id="prompt-template-for-research-projects" class="level3">
+<h3 class="anchored" data-anchor-id="prompt-template-for-research-projects">Prompt Template for Research Projects</h3>
+<div class="sourceCode" id="cb2"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>**Project Level Instructions:**</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>Act as a senior economics researcher specializing in <span class="co">[</span><span class="ot">your field</span><span class="co">]</span>. </span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>Maintain academic rigor while making complex concepts accessible. </span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>Always cite relevant economic theories and empirical evidence when applicable.</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>Focus on practical policy implications and real-world applications.</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+</section>
+<section id="part-3-data-analysis-and-visualization" class="level2">
+<h2 class="anchored" data-anchor-id="part-3-data-analysis-and-visualization">Part 3: Data Analysis and Visualization</h2>
+<section id="prompt-1-initial-data-exploration" class="level3">
+<h3 class="anchored" data-anchor-id="prompt-1-initial-data-exploration">Prompt 1: Initial Data Exploration</h3>
+<div class="sourceCode" id="cb3"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>Act as a senior business analyst with expertise in economic data analysis. </span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>Your task is to analyze the provided dataset and outline three effective </span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>methods or frameworks for deriving meaningful economic insights. </span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>Please:</span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>Describe the data structure and key variables</span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>Identify potential research questions</span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a><span class="ss">3. </span>Suggest appropriate analytical approaches</span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a><span class="ss">4. </span>Highlight any data quality issues or limitations</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="prompt-2-customermarket-segmentation-analysis" class="level3">
+<h3 class="anchored" data-anchor-id="prompt-2-customermarket-segmentation-analysis">Prompt 2: Customer/Market Segmentation Analysis</h3>
+<div class="sourceCode" id="cb4"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>I want to segment the data based on <span class="co">[</span><span class="ot">specific economic criteria</span><span class="co">]</span>. </span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>Specifically, I want you to:</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>Bucket the observations into meaningful economic categories</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>Create a visualization comparing these segments</span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="ss">3. </span>Add key findings and economic interpretations below the chart</span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a><span class="ss">4. </span>Suggest policy implications of these patterns</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="prompt-3-time-series-visualization" class="level3">
+<h3 class="anchored" data-anchor-id="prompt-3-time-series-visualization">Prompt 3: Time Series Visualization</h3>
+<div class="sourceCode" id="cb5"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>Create an interactive dashboard that visualizes the economic trends in this dataset. </span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>Include:</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Time series plots of key economic indicators</span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Correlation analysis between variables</span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Trend decomposition if applicable</span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Brief economic interpretation of patterns observed</span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>Make it interactive so I can explore different time periods and variables.</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+</section>
+<section id="part-4-research-document-creation" class="level2">
+<h2 class="anchored" data-anchor-id="part-4-research-document-creation">Part 4: Research Document Creation</h2>
+<section id="prompt-4-literature-review-synthesis" class="level3">
+<h3 class="anchored" data-anchor-id="prompt-4-literature-review-synthesis">Prompt 4: Literature Review Synthesis</h3>
+<div class="sourceCode" id="cb6"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>Based on the attached research papers, create a comprehensive literature </span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>review section that:</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>Synthesizes the main theoretical frameworks</span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>Identifies gaps in current research</span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a><span class="ss">3. </span>Highlights methodological approaches used</span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a><span class="ss">4. </span>Suggests areas for future investigation</span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a><span class="ss">5. </span>Maintains proper academic tone and structure</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="prompt-5-research-proposal-development" class="level3">
+<h3 class="anchored" data-anchor-id="prompt-5-research-proposal-development">Prompt 5: Research Proposal Development</h3>
+<div class="sourceCode" id="cb7"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="an">Help me develop a research proposal based on the following economic question:</span><span class="co"> </span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="co">[</span><span class="ot">Your research question</span><span class="co">]</span></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>Please create:</span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>A compelling research objective and hypothesis</span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>Literature review outline with key papers to cite</span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a><span class="ss">3. </span>Methodology section with appropriate econometric approaches</span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a><span class="ss">4. </span>Expected contributions to economic knowledge</span>
+<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a><span class="ss">5. </span>Timeline and resource requirements</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+</section>
+<section id="part-5-interactive-content-creation" class="level2">
+<h2 class="anchored" data-anchor-id="part-5-interactive-content-creation">Part 5: Interactive Content Creation</h2>
+<section id="prompt-6-economic-dashboard-from-reports" class="level3">
+<h3 class="anchored" data-anchor-id="prompt-6-economic-dashboard-from-reports">Prompt 6: Economic Dashboard from Reports</h3>
+<div class="sourceCode" id="cb8"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>I have attached an economic report/white paper that's quite technical. </span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>Create an interactive dashboard to visualize this dense content so students </span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>can digest the information more easily. Include:</span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Key economic concepts with definitions</span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Interactive charts showing relationships</span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Summary of main findings</span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Policy implications section</span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a>Make it educational and engaging for undergraduate students.</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="prompt-7-teaching-material-generation" class="level3">
+<h3 class="anchored" data-anchor-id="prompt-7-teaching-material-generation">Prompt 7: Teaching Material Generation</h3>
+<div class="sourceCode" id="cb9"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>Create an interactive infographic that summarizes <span class="co">[</span><span class="ot">economic concept/theory</span><span class="co">]</span> </span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>for my undergraduate economics course. The visualization should:</span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>Show relationships between key variables</span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>Include real-world examples</span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a><span class="ss">3. </span>Use clear, student-friendly language</span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a><span class="ss">4. </span>Incorporate current economic data where relevant</span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a><span class="ss">5. </span>Be suitable for both digital and print formats</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+</section>
+<section id="part-6-advanced-analysis-workflows" class="level2">
+<h2 class="anchored" data-anchor-id="part-6-advanced-analysis-workflows">Part 6: Advanced Analysis Workflows</h2>
+<section id="prompt-8-econometric-analysis-setup" class="level3">
+<h3 class="anchored" data-anchor-id="prompt-8-econometric-analysis-setup">Prompt 8: Econometric Analysis Setup</h3>
+<div class="sourceCode" id="cb10"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="an">I have economic time series data with the following variables:</span><span class="co"> [list variables].</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="an">Please:</span></span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>Perform preliminary data analysis and visualization</span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>Test for stationarity and suggest appropriate transformations</span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a><span class="ss">3. </span>Identify potential econometric models (VAR, VECM, ARIMA, etc.)</span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a><span class="ss">4. </span>Create diagnostic plots for model assumptions</span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a><span class="ss">5. </span>Provide R/Python code for replication</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="prompt-9-policy-impact-assessment" class="level3">
+<h3 class="anchored" data-anchor-id="prompt-9-policy-impact-assessment">Prompt 9: Policy Impact Assessment</h3>
+<div class="sourceCode" id="cb11"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>Using the provided economic data, analyze the impact of <span class="co">[</span><span class="ot">specific policy</span><span class="co">]</span> </span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>implemented in <span class="co">[</span><span class="ot">time period</span><span class="co">]</span>. Create:</span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>Before/after comparison visualizations</span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>Statistical tests for significance of changes</span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a><span class="ss">3. </span>Economic interpretation of results</span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a><span class="ss">4. </span>Confidence intervals and uncertainty quantification</span>
+<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a><span class="ss">5. </span>Policy recommendations based on findings</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+</section>
+<section id="part-7-research-communication" class="level2">
+<h2 class="anchored" data-anchor-id="part-7-research-communication">Part 7: Research Communication</h2>
+<section id="prompt-10-academic-writing-enhancement" class="level3">
+<h3 class="anchored" data-anchor-id="prompt-10-academic-writing-enhancement">Prompt 10: Academic Writing Enhancement</h3>
+<div class="sourceCode" id="cb12"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>Please review and enhance this draft section of my economics paper. </span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>Focus on:</span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>Clarity of economic arguments</span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>Proper citation and referencing style</span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a><span class="ss">3. </span>Logical flow between paragraphs</span>
+<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a><span class="ss">4. </span>Technical accuracy of economic concepts</span>
+<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a><span class="ss">5. </span>Accessibility for the target journal audience</span>
+<span id="cb12-8"><a href="#cb12-8" aria-hidden="true" tabindex="-1"></a>Maintain academic rigor while improving readability.</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="prompt-11-conference-presentation-creation" class="level3">
+<h3 class="anchored" data-anchor-id="prompt-11-conference-presentation-creation">Prompt 11: Conference Presentation Creation</h3>
+<div class="sourceCode" id="cb13"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>Transform my research findings into a compelling conference presentation. </span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>Create:</span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>Engaging title and hook for the introduction</span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>Clear research question and motivation</span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a><span class="ss">3. </span>Concise methodology explanation with visuals</span>
+<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a><span class="ss">4. </span>Key findings with impactful charts</span>
+<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a><span class="ss">5. </span>Policy implications and future research directions</span>
+<span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a>Target audience: <span class="co">[</span><span class="ot">specify - academic economists, policymakers, etc.</span><span class="co">]</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+</section>
+<section id="best-practices-for-economics-research" class="level2">
+<h2 class="anchored" data-anchor-id="best-practices-for-economics-research">Best Practices for Economics Research</h2>
+<section id="effective-prompting-strategies" class="level3">
+<h3 class="anchored" data-anchor-id="effective-prompting-strategies">Effective Prompting Strategies</h3>
+<ol type="1">
+<li><strong>Be Specific About Context</strong>: Always specify your field (labor economics, macroeconomics, etc.)</li>
+<li><strong>Include Data Descriptions</strong>: Provide variable definitions and data sources</li>
+<li><strong>Request Multiple Approaches</strong>: Ask for alternative methodologies</li>
+<li><strong>Emphasize Interpretation</strong>: Always ask for economic meaning, not just statistical results</li>
+<li><strong>Consider Policy Relevance</strong>: Frame findings in terms of practical applications</li>
+</ol>
+</section>
+<section id="quality-control-tips" class="level3">
+<h3 class="anchored" data-anchor-id="quality-control-tips">Quality Control Tips</h3>
+<ol type="1">
+<li><strong>Verify Statistical Results</strong>: Always double-check Claude’s calculations</li>
+<li><strong>Cross-Reference Literature</strong>: Confirm theoretical frameworks and citations</li>
+<li><strong>Test Code Outputs</strong>: Run generated R/Python code to ensure functionality</li>
+<li><strong>Peer Review</strong>: Use Claude to review your own work from different perspectives</li>
+</ol>
+</section>
+</section>
+<section id="troubleshooting-common-issues" class="level2">
+<h2 class="anchored" data-anchor-id="troubleshooting-common-issues">Troubleshooting Common Issues</h2>
+<section id="when-claude-makes-errors" class="level3">
+<h3 class="anchored" data-anchor-id="when-claude-makes-errors">When Claude Makes Errors</h3>
+<ul>
+<li>Ask Claude to “debug and fix the error in your previous analysis”</li>
+<li>Provide specific error messages or unexpected results</li>
+<li>Request step-by-step explanations of methodology</li>
+</ul>
+</section>
+<section id="improving-output-quality" class="level3">
+<h3 class="anchored" data-anchor-id="improving-output-quality">Improving Output Quality</h3>
+<ul>
+<li>Use follow-up prompts to refine results</li>
+<li>Ask for specific formatting (APA, Chicago, etc.)</li>
+<li>Request alternative approaches when initial results are unsatisfactory</li>
+</ul>
+</section>
+</section>
+<section id="workshop-exercise" class="level2">
+<h2 class="anchored" data-anchor-id="workshop-exercise">Workshop Exercise</h2>
+<p><strong>Practical Application:</strong> Upload your own economic dataset and work through this workflow:</p>
+<ol type="1">
+<li>Use Prompt 1 for initial exploration</li>
+<li>Apply Prompt 2 or 8 for detailed analysis</li>
+<li>Create visualizations using Prompt 3</li>
+<li>Generate a brief report using elements from Prompt 10</li>
+</ol>
+</section>
+<section id="additional-resources" class="level2">
+<h2 class="anchored" data-anchor-id="additional-resources">Additional Resources</h2>
+<ul>
+<li><strong>Claude Projects</strong>: Organize related research streams</li>
+<li><strong>Artifacts Feature</strong>: Download and modify generated content</li>
+<li><strong>Analysis Tool</strong>: Direct data processing and visualization</li>
+<li><strong>Google Drive Integration</strong>: Seamless document workflow</li>
+</ul>
+</section>
+<section id="conclusion" class="level2">
+<h2 class="anchored" data-anchor-id="conclusion">Conclusion</h2>
+<p>Claude excels at three key areas for economics research: 1. <strong>Complex Data Analysis</strong>: From messy datasets to publication-ready visualizations 2. <strong>Interactive Content Creation</strong>: Dashboards and educational materials 3. <strong>Research Communication</strong>: From technical analysis to accessible explanations</p>
+<p>The key to success is combining Claude’s capabilities with your economic expertise and always maintaining critical evaluation of results.</p>
+<hr>
+<p><em>Workshop Materials prepared for Economics Faculty Development</em> <em>For questions or advanced applications, contact: [Your contact information]</em></p>
+
+
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+        const codeEl = trigger.previousElementSibling.cloneNode(true);
+        for (const childEl of codeEl.children) {
+          if (isCodeAnnotation(childEl)) {
+            childEl.remove();
+          }
+        }
+        return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+</div> <!-- /content -->
+
+
+
+
+</body></html>

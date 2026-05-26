@@ -1,0 +1,173 @@
+---
+title: "The Econometrician’s Lens — Issue #1"
+subtitle: "Pakistan’s Trade Gap: Data, Politics, and Perception"
+author: "Zahid Asghar"
+date: "2025-10-18"
+categories: [Pakistan, Trade, Econometrics, Policy]
+format:
+  html:
+    theme: cosmo
+    toc: true
+    toc-location: left
+    number-sections: true
+    smooth-scroll: true
+    anchor-sections: true
+    code-copy: true
+    code-link: true
+execute:
+  echo: true
+  warning: false
+  message: false
+editor: visual
+---
+
+::: callout-note
+**Welcome to the launch edition.**\
+*A weekly visual, data‑driven look at Pakistan’s economy — where evidence meets narrative.*
+:::
+
+# Opening Hook
+
+> When a trade gap becomes a political storm, data becomes the first casualty.
+
+Pakistan’s recent trade‑data debate (the “\$11B vs. \$6B” import gap) exposed structural weaknesses in transparency, reconciliation, and statistical capacity. This launch issue explains the **data story**, suggests how an **econometrician would test claims**, and proposes **practical fixes** that improve evidence‑based policymaking.
+
+------------------------------------------------------------------------
+
+# Data Pulse — Visual Insight
+
+**Title:** *Imports vs. Exports — The Quiet Divergence (FY2022–FY2025)*
+
+Use the template below. Replace `pak_trade_data.csv` with your dataset (PBS/SBP monthly).\
+Expected columns: `Month, Imports, Exports` where `Month` is ISO date (YYYY-MM-01) and values are in **million USD**.
+
+```{r}
+#| label: trade-plot
+#| echo: true
+#| fig-cap: "Pakistan Trade Flows (FY2022–FY2025) — template"
+# Install once if needed:
+# install.packages(c("readr","ggplot2","scales"))
+library(readr)
+library(ggplot2)
+library(scales)
+
+df <- read_csv("pak_trade_data.csv")  # <- replace with your path
+df$Month <- as.Date(df$Month)
+
+ggplot(df, aes(x = Month)) +
+  geom_line(aes(y = Imports, linetype = "Imports"), linewidth = 1.1) +
+  geom_line(aes(y = Exports, linetype = "Exports"), linewidth = 1.1) +
+  scale_y_continuous(labels = label_number_si()) +
+  labs(title = "Pakistan Trade Flows (FY2022–FY2025)",
+       y = "Million USD", x = "Month", linetype = NULL) +
+  theme_minimal(base_size = 13)
+```
+
+**Insight (1–2 lines):** Despite some reporting improvements in 2024–25, the **trade deficit remains structurally persistent**; remittances and valuation effects can mask deeper competitiveness issues.
+
+------------------------------------------------------------------------
+
+# Deep Dive — What the IMF Found (and Why It Matters)
+
+-   The controversy centers on **possible over/under‑statement of imports**, **valuation gaps**, and **lags** across reporting systems.\
+-   Divergences can emerge from: customs declarations, exchange‑rate timing, informal channels, and methodological differences between **PBS** (goods trade) and **SBP** (balance‑of‑payments).\
+-   **Governance lesson:** Transparency in data systems is not cosmetic — it’s a **policy instrument**. Open, reconcilable data reduces uncertainty for firms, markets, and citizens.
+
+> *Credibility is a macroeconomic variable.*
+
+------------------------------------------------------------------------
+
+# Econometrics in Action — Testing a Policy Claim
+
+**Question:** Did import restrictions reduce domestic prices?
+
+Two quick templates you can adapt.
+
+### Stata (DiD)
+
+``` stata
+* price_it = β0 + β1 post_t + β2 treated_i + β3 (post_t×treated_i) + γX_it + ε_it
+reghdfe price i.post##i.treated controls, absorb(id time) vce(robust)
+esttab, se ar2
+```
+
+### Python (statsmodels)
+
+``` python
+import statsmodels.formula.api as smf
+model = smf.ols("price ~ post * treated + controls", data=df).fit(cov_type="HC3")
+print(model.summary())
+```
+
+**Interpretation tip:** β₃ (the interaction) captures the differential post‑policy change for the treated group versus control, controlling for confounders and fixed effects where applicable.
+
+------------------------------------------------------------------------
+
+# Policy & Governance Note — Reconciliation Wins
+
+-   **Digitize and reconcile** customs→PBS→SBP flows with a public changelog.\
+-   Publish **method notes** for adjustments/deflators, and maintain a **versioned dataset**.\
+-   Build a **monthly discrepancy dashboard** (PBS vs SBP) with flags when gaps exceed thresholds.
+
+**Schematic (suggested for future graphic):**\
+Customs → PBS (goods) → SBP (BoP) → IMF Reporting → Public Portal
+
+------------------------------------------------------------------------
+
+# Tool of the Week — Shiny Reconciliation Starter
+
+Prototype a quick validator to compare PBS and SBP series.
+
+```{r}
+#| label: shiny-starter
+# Minimal Shiny pseudo‑starter (expand in your app):
+# install.packages("shiny")
+library(shiny)
+
+ui <- fluidPage(
+  titlePanel("Trade Data Reconciliation — Demo"),
+  sidebarLayout(
+    sidebarPanel(
+      fileInput("pbs", "Upload PBS CSV"),
+      fileInput("sbp", "Upload SBP CSV")
+    ),
+    mainPanel(
+      plotOutput("gapPlot")
+    )
+  )
+)
+
+server <- function(input, output, session) {
+  output$gapPlot <- renderPlot({
+    # Read, align dates, compute gap, then plot.
+    # Placeholder: add your logic here.
+    plot.new(); title("Gap plot will render here")
+  })
+}
+
+# shinyApp(ui, server)  # Uncomment to run locally
+```
+
+------------------------------------------------------------------------
+
+# What to Watch Next Week
+
+-   Data releases: CPI, remittances, FX reserves, and any policy circulars impacting imports.\
+-   Narrative risk: headlines vs. methodology — expect revisions and reconciliation notes.
+
+------------------------------------------------------------------------
+
+# One‑Line Insight
+
+> When numbers become narratives, **transparency becomes governance**.
+
+------------------------------------------------------------------------
+
+# About & Call to Action
+
+If you find this useful, share it with colleagues in policy, academia, and industry.\
+I’m building open, replicable workflows in **R/Python/Stata** and consulting on **econometrics, impact evaluation, and data systems**.
+
+-   **Subscribe:** Get the next issue in your inbox.\
+-   **Collaborate:** Commission a brief, dashboard, or evaluation design.\
+-   **Contact:** zahid \[at\] email — LinkedIn/X (DMs open).

@@ -1,0 +1,8 @@
+- source: tax_slabs.qmd
+  quarto-pub:
+    - id: f32a4579-f46c-4c21-b6fe-5a778dba2306
+      url: https://zahid.quarto.pub/tax-slabs
+- source: future_jobs.qmd
+  quarto-pub:
+    - id: aa6111e3-3c3e-40c0-8e6d-e9fbf5293536
+      url: https://zahid.quarto.pub/ai-is-eating-reasearch

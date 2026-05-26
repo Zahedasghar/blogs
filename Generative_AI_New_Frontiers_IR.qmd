@@ -1,0 +1,470 @@
+---
+title: "Generative AI: New Frontiers of Political Imagination"
+subtitle: "AI for International and Global Analysis"
+author: "Zahid Asghar, School of Economics"
+institute: "Quaid-i-Azam University, Islamabad"
+date: today
+format:
+  revealjs:
+    theme: night
+    chalkboard: true
+    slide-number: c/t
+    logo: "https://www.validate-network.org/sites/default/files/styles/mt_image_small/public/validate/images/media/quaid-i-azam_university_islamabad.jpg?itok=3eu4d_7a"
+    footer: "Prof. Dr. Zahid Asghar, QAU | AI for IR & Global Studies"
+    incremental: false
+    transition: fade
+    transition-speed: slow
+    toc: false
+    center: false
+    title-slide-attributes:
+      data-background-image: "images/gen_ai.jpeg"
+      data-background-size: cover
+      data-background-opacity: "0.28"
+execute:
+  echo: false
+  warning: false
+---
+
+```{=html}
+<style>
+/* AUDITORIUM READABILITY: Larger fonts & spacing */
+.reveal .slides { font-size: 30px; line-height: 1.35; }
+.reveal h2 { font-size: 1.8em; border-bottom: 3px solid #5B8CFF; padding-bottom: .35rem; margin-bottom: .8rem; }
+.reveal h3 { font-size: 1.25em; color: #cfd8ff; margin-top: .6rem; }
+
+/* Ensure only the actual title slide shows H1 */
+.reveal .slides section:not(.title-slide) h1 { display: none !important; }
+.reveal .slides section.title-slide h1 {
+  display: block !important;
+  color: #ffd700; font-size: 2.6em; font-weight: 800;
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.55);
+}
+
+/* Slide layout and scrolling for dense content */
+.reveal .slides section { display: flex; flex-direction: column; justify-content: flex-start; padding-top: .75rem; text-align: left; }
+.reveal .slides section.title-slide { justify-content: center; text-align: center; }
+.scrollable { overflow-y: auto !important; max-height: 78vh !important; padding-right: 12px; }
+
+/* Two-column layout */
+.columns { display: flex; gap: 1.6rem; }
+.column { flex: 1; min-width: 0; }
+
+/* Callouts */
+.callout-note, .callout-tip, .callout-important, .callout-warning {
+  padding: 1rem; margin: 1rem 0; border-radius: 10px; background: rgba(255,255,255,0.06);
+}
+.callout-note { border-left: 6px solid #5B8CFF; }
+.callout-tip { border-left: 6px solid #35d3a7; }
+.callout-important { border-left: 6px solid #ff6b6b; }
+.callout-warning { border-left: 6px solid #ffd166; }
+
+/* Prompt boxes (gray) */
+.prompt-box {
+  background: rgba(255,255,255,0.10);
+  border: 1px dashed rgba(255,255,255,0.35);
+  border-left: 6px solid #9aa5b1;
+  padding: 1rem 1.25rem; border-radius: 10px; margin: 1rem 0;
+}
+.prompt-title { font-weight: 700; color: #e6e9ef; margin-bottom: .35rem; }
+.prompt-ex { font-style: italic; color: #c7ced9; }
+
+/* Gradient tags for emphasis */
+.gradient-box { padding: 1.1rem 1.25rem; border-radius: 12px; color: #fff; margin: 1rem 0; }
+.gradient-purple { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); }
+.gradient-blue { background: linear-gradient(135deg, #74b9ff 0%, #0984e3 100%); }
+.gradient-orange { background: linear-gradient(135deg, #ff6b6b 0%, #feca57 100%); }
+.gradient-green { background: linear-gradient(135deg, #11998e 0%, #38ef7d 100%); }
+
+/* Tables */
+.reveal table { width: 100%; border-collapse: collapse; }
+.reveal table th, .reveal table td { border: 1px solid rgba(255,255,255,0.12); padding: .55rem .6rem; }
+.reveal table th { background: rgba(91,140,255,0.18); }
+
+/* Small utility classes */
+.text-center { text-align: center !important; }
+.mt-2 { margin-top: 2rem; }
+.mb-1 { margin-bottom: .75rem; }
+.img-shadow { box-shadow: 0 12px 24px rgba(0,0,0,0.35); border-radius: 12px; }
+</style>
+```
+
+## 🌍 Welcome & Framing {background-image="images/apple.jpg" background-size="cover"}
+
+<div class="gradient-box gradient-purple text-center">
+  <h3>Generative AI: New Frontiers of Political Imagination</h3>
+  <p><em>"The best way to predict the future is to create it."</em></p>
+  <p><strong>Be comfortable with being uncomfortable.</strong></p>
+</div>
+
+---
+
+## Agenda: Your 90-Minute Journey {.scrollable}
+
+- Why AI matters for Political Science, IR & Global Studies
+- Intelligence → ML → NLP → Generative AI (clear, visual)
+- LLMs: capabilities, limits, and scholarly use
+- IR Applications: diplomacy, security, negotiation, development
+- Hands-on prompts (💬 gray boxes) for in-class exploration
+- Ethics, safety, transparency & reliability
+- Faculty dialogue and future curricula
+- Reflection & discussion
+
+---
+
+## The New Reality
+
+<div style="text-align:center; margin-top:1rem;">
+  <h2 style="border:none;">AI won't replace IR analysts.</h2>
+  <h3 style="color:#ffd700;">But IR analysts using AI will replace those who don't.</h3>
+</div>
+<div class="callout-note">
+  <strong>Why today?</strong> AI augments judgment, scales comparative analysis, and compresses time-to-insight across languages and sources.
+</div>
+
+---
+
+## Foundations: What is AI? {.scrollable}
+
+<div class="columns">
+<div class="column">
+
+**Core abilities**
+- Learn from data
+- Recognize patterns
+- Understand language
+- Reason over context
+- Make/advise decisions
+- Adapt to feedback
+
+</div>
+<div class="column">
+
+<div class="callout-tip">
+  <strong>Simple truth:</strong> AI processes vast multilingual, multi-source information faster than any person, surfacing patterns in events, treaties, and diplomatic communications.
+</div>
+
+</div>
+</div>
+
+---
+
+## From AI → ML → NLP → GenAI
+
+![](images/genAI1.png){.img-shadow}
+
+<div class="prompt-box">
+  <div class="prompt-title">💬 Try this Prompt</div>
+  <div class="prompt-ex">"In 120 words, explain the difference between traditional AI and generative AI to a first-year IR student."</div>
+</div>
+
+---
+
+## Traditional vs. Generative AI
+
+| Aspect | Traditional AI (Analyzer) | Generative AI (Creator) |
+|-------|----------------------------|-------------------------|
+| Focus | Understand & Predict | Create & Generate |
+| Output | Scores, forecasts, clusters | Drafts, briefs, scenarios |
+| Data | Mostly structured | Mixed: text, code, images |
+| UX | Dashboards | Conversations & agents |
+| IR Use | Conflict prediction, voting patterns | Briefs, speeches, simulation scripts |
+
+---
+
+## Machine Learning: Learning from Data
+
+```
+📚 Data → 🔍 Patterns → 🧪 Predictions
+        ↑                   ↓
+        ← 🔄 Feedback ← ✨ Analysis
+```
+
+<div class="columns">
+<div class="column">
+  <div class="callout-note">
+    <strong>Supervised:</strong> conflict prediction, election forecasting, sanctions effects
+  </div>
+</div>
+<div class="column">
+  <div class="callout-tip">
+    <strong>Unsupervised:</strong> alliance clusters, UNGA voting blocs, narrative detection
+  </div>
+</div>
+<div class="column">
+  <div class="callout-important">
+    <strong>Reinforcement:</strong> negotiation strategies, policy optimization, crisis games
+  </div>
+</div>
+</div>
+
+---
+
+## NLP for Global Analysis
+
+**Capabilities**
+- Treaty/document analysis
+- Multilingual translation
+- Sentiment & narrative tracking
+- Policy brief generation
+- Summarization & comparison
+
+**Applications**
+- UN/EU translation
+- Diplomatic cable triage
+- Media monitoring & misinformation tracking
+- Treaty comparison & compliance review
+
+<div class="prompt-box">
+  <div class="prompt-title">💬 Try this Prompt</div>
+  <div class="prompt-ex">"Summarize this (paste 3–5 paragraphs) into a 5-bullet policy brief for a foreign minister. Add 2 risks and 2 opportunities."</div>
+</div>
+
+---
+
+## Generative AI: Why it’s Special for IR
+
+<div class="columns">
+<div class="column">
+
+**What it can do**
+- Draft memos & talking points
+- Generate scenarios & options
+- Adapt style to audience/country
+- Iterate with feedback
+- Synthesize large policy corpora
+
+</div>
+<div class="column">
+
+**How it works (high level)**
+- Transformers & attention
+- Pretraining on diverse corpora
+- Instruction tuning & RAG
+- Safety alignment & system prompts
+- Tool-use & function calling
+
+</div>
+</div>
+
+![](images/genAI2.png){.img-shadow}
+
+---
+
+## Large Language Models (LLMs)
+
+**Power**
+- Global knowledge, multilingual
+- Long-context reasoning (caveats)
+- Flexible outputs (text, code, tables)
+- Transfer & few-shot learning
+
+**Leading families**
+- GPT, Claude, Gemini
+- Open models: Llama, Mixtral, DeepSeek
+
+<div class="prompt-box">
+  <div class="prompt-title">💬 Try this Prompt</div>
+  <div class="prompt-ex">"Create a comparative table of India–Pakistan crisis episodes since 1990 with date, trigger, diplomatic channels, and outcome (3–5 rows)."</div>
+</div>
+
+---
+
+## Tools You Can Use Today
+
+<div class="columns">
+<div class="column">
+
+**Research & writing**
+- ChatGPT / GPT-5
+- Claude
+- Perplexity, Elicit, Consensus
+- Semantic Scholar, Connected Papers
+
+</div>
+<div class="column">
+
+**Analysis & presentation**
+- Notion AI, Obsidian (notes)
+- DeepL / Google Translate
+- Gamma / Beautiful.ai (slides)
+- Data analysis mode in ChatGPT
+
+</div>
+</div>
+
+<div class="prompt-box">
+  <div class="prompt-title">💬 Try this Prompt</div>
+  <div class="prompt-ex">"Draft a 200-word neutral brief on 'Pakistan’s strategic position in CPEC' for (a) a newspaper editorial, (b) a Foreign Office note, (c) an academic abstract."</div>
+</div>
+
+---
+
+## Applications in IR & Global Studies {.scrollable}
+
+<div class="columns">
+<div class="column">
+
+**Research & Intelligence**
+- Literature reviews at scale
+- Geopolitical mapping of alliances
+- Economic & trade indicators
+- Case comparisons & timelines
+- Narrative analysis across regions
+
+</div>
+<div class="column">
+
+**Professional Output**
+- Policy briefs & speeches
+- Diplomatic cables & templates
+- Multilingual translation & back-translation
+- Visualized reports & explainers
+- Public diplomacy & strategic comms
+
+</div>
+</div>
+
+---
+
+## Case Mini-Studies (Teaching Aids)
+
+1) **Paris Agreement progress** – track pledges, narratives, and compliance signals.  
+2) **Misinformation in crises** – detect coordinated narratives; propose counter-messaging.  
+3) **Border incidents** – build a structured log; compare with historical de-escalation patterns.  
+4) **UNGA voting blocs** – cluster countries; examine outliers and issue-specific coalitions.
+
+<div class="prompt-box">
+  <div class="prompt-title">💬 Try this Prompt</div>
+  <div class="prompt-ex">"Cluster UNGA roll-call votes (provide a small sample) and explain which countries form stable coalitions across human-rights resolutions."</div>
+</div>
+
+---
+
+## Building a Simple IR Workflow (RAG)
+
+**Flow:** Sources → Chunk/Index → Retrieve → LLM → Cite → Human review  
+- Start with open sources (UN, World Bank, think tanks)  
+- Maintain a small, vetted corpus
+- Use retrieval augmentation (RAG) for citations
+- Document prompts & versions
+- Keep a review checklist (facts, tone, bias, sensitivity)
+
+<div class="prompt-box">
+  <div class="prompt-title">💬 Try this Prompt</div>
+  <div class="prompt-ex">"Given these 3 URLs (paste), build a 7-bullet brief with inline citations [1][2][3], flag contradictions, and list unknowns to investigate."</div>
+</div>
+
+---
+
+## Human + AI: A Division of Labor
+
+**AI excels at:** breadth, speed, synthesis, multilingual processing  
+**Humans excel at:** judgment, context, ethics, accountability, diplomacy
+
+<div class="gradient-box gradient-blue">
+  <strong>Use AI for drafts; use humans for decisions.</strong>
+</div>
+
+---
+
+## Risks, Limits, and Guardrails {.scrollable}
+
+- **Bias** in training data → skewed outputs  
+- **Hallucinations** → fabricated facts/citations  
+- **Misinformation** → narrative amplification risks  
+- **Privacy & security** → sensitive sources  
+- **Over-reliance** → deskilling of analytic craft
+
+<div class="callout-warning">
+  Always verify with primary sources; keep an audit trail of prompts and revisions.
+</div>
+
+<div class="prompt-box">
+  <div class="prompt-title">💬 Try this Prompt</div>
+  <div class="prompt-ex">"List 5 potential harms of using AI to analyze conflict data and propose 5 mitigation steps a university lab can implement."</div>
+</div>
+
+---
+
+## Ethics for IR & Academia
+
+1. **Transparency** — disclose AI use when appropriate  
+2. **Attribution** — credit sources & collaborators  
+3. **Verification** — cross-check facts; log methods  
+4. **Privacy** — protect vulnerable groups & data  
+5. **Balance** — AI assists; humans decide
+
+<div class="prompt-box">
+  <div class="prompt-title">💬 Try this Prompt</div>
+  <div class="prompt-ex">"Create a 1-page 'Responsible AI in the Seminar' policy for undergraduates with bullet points on disclosure, verification, and collaboration norms."</div>
+</div>
+
+---
+
+## Teaching with AI: Faculty Notes
+
+- Scaffold tasks (describe → compare → critique → create)  
+- Encourage method transparency (prompt logs)  
+- Evaluate process, not just outputs  
+- Mix closed-book & oral checks to deter over-reliance  
+- Bring country/regional expertise into AI prompts
+
+---
+
+## Skill Map: 6-Hour Path (for a mini-course)
+
+- **Hour 1:** Concepts & vocabulary (this deck)  
+- **Hour 2:** Prompt engineering for IR tasks  
+- **Hour 3:** Research tools & RAG setup  
+- **Hour 4:** Policy analysis & scenario design  
+- **Hour 5:** Workflow automation & citing  
+- **Hour 6:** Ethics lab & capstone presentations
+
+---
+
+## Quick Reference Prompts (Copy & Use)
+
+- **Briefing:** “Summarize [topic] in 6 bullets for a minister, add 2 risks & 2 options.”  
+- **Compare:** “Contrast positions of [A] vs [B] on [issue] with a 5-row table.”  
+- **Narratives:** “Extract 3 narratives and their evidence from these links: [..].”  
+- **Diplomatic style:** “Rewrite this memo in a neutral MFA tone, max 180 words.”  
+- **Translation check:** “Translate to [lang] and back-translate; list divergences.”  
+- **Scenario:** “Draft 3 scenarios (optimistic/base/pessimistic) with signposts.”
+
+---
+
+## Your Next Steps (Students)
+
+- Pick one IR issue and build a mini-brief this week  
+- Keep a prompt & source log (methods matter)  
+- Pair up for peer-review and fact checks  
+- Present a 3-minute lightning brief in class
+
+<div class="gradient-box gradient-green text-center">
+  <strong>AI doesn't replace IR expertise — it multiplies it.</strong>
+</div>
+
+---
+
+## Reflection & Discussion
+
+**Pause & Reflect (Students)**
+- What surprised you today about AI’s role in IR?  
+- Where did AI help you think better? Where did it hinder?
+
+**Faculty Dialogue**
+- Where should AI literacy live in the curriculum?  
+- What standards for disclosure and verification?  
+- How to assess AI-assisted student work fairly?
+
+---
+
+## Thank You {background-color="#1a1a2e"}
+
+<div style="text-align:center; margin-top:1rem;">
+  <h2 style="color:#ffd700; border:none;">Thank you!</h2>
+  <p>📧 <a href="mailto:zasghar@qau.edu.pk">zasghar@qau.edu.pk</a><br/>
+     🌐 <a href="https://zahid.quarto.pub" style="color:#74b9ff;">Zahid Asghar Website</a></p>
+  <p><em>"The future of diplomacy belongs to those who master AI today."</em></p>
+  <p style="color:#ffd700; font-weight:700;">🌍 Your AI-Powered IR Career Starts Now</p>
+</div>
