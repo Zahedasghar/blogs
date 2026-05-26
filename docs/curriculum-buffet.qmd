@@ -74,9 +74,7 @@ Usual disclaimers apply: the author has written with a purpose and may have a bi
 
 ---
 
-![Students in a university lecture hall — a familiar scene across Pakistan's campuses.](https://images.unsplash.com/photo-1523050854058-8df90110c9f1?w=1200&q=80){fig-alt="Students sitting in a university lecture hall" .lightbox}
 
----
 
 There is a very simple formula running Pakistan's education policy right now. It has no official name, but if you look carefully, you will see it in every curriculum committee meeting, every HEC workshop, every policy document that begins with the phrase *"in light of the challenges facing the nation."*
 
